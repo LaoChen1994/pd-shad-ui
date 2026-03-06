@@ -7,7 +7,7 @@
 ### 基础用法
 
 ```tsx
-import { Button } from "pd-ui"
+import { Button } from "pd-shad-ui"
 
 export default function Example() {
   return <Button>点击我</Button>

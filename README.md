@@ -1,4 +1,4 @@
-# pd-ui
+# pd-shad-ui
 
 > 一个基于 Radix UI 与 Tailwind CSS 构建的专业级、高性能 React UI 组件库。
 
@@ -20,26 +20,26 @@
 ## 📦 安装
 
 ```bash
-pnpm add pd-ui
+pnpm add pd-shad-ui
 ```
 
 ## 🚀 快速上手
 
 ### 1. 配置 Tailwind
 
-由于 `pd-ui` 使用了自定义前缀，你需要更新宿主项目的 `tailwind.config.js`：
+由于 `pd-shad-ui` 使用了自定义前缀，你需要更新宿主项目的 `tailwind.config.js`：
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
 export default {
-  // 必须：将 pd-ui 产物加入扫描范围
+  // 必须：将 pd-shad-ui 产物加入扫描范围
   content: [
-    "./node_modules/pd-ui/dist/**/*.js",
+    "./node_modules/pd-shad-ui/dist/**/*.js",
     // ... 你的应用路径
   ],
   theme: {
     extend: {
-      // 可选：在此处覆盖 pd-ui 的 CSS 变量
+      // 可选：在此处覆盖 pd-shad-ui 的 CSS 变量
     },
   },
   plugins: [require("tailwindcss-animate")],
@@ -49,12 +49,12 @@ export default {
 ### 2. 使用组件
 
 ```tsx
-import { Button } from "pd-ui"
-import "pd-ui/dist/index.css" // 导入基础样式
+import { Button } from "pd-shad-ui"
+import "pd-shad-ui/dist/index.css" // 导入基础样式
 
 export default function App() {
   return (
-    <Button variant="default" onClick={() => alert("Hello pd-ui!")}>
+    <Button variant="default" onClick={() => alert("Hello pd-shad-ui!")}>
       点击我
     </Button>
   )
@@ -68,7 +68,7 @@ export default function App() {
 - `pnpm install`: 安装所有依赖。
 - `pnpm run build:ui`: 编译组件库产物。
 - `pnpm run test:ui`: 运行单元测试及无障碍审计。
-- `pnpm --filter pd-ui run storybook`: 启动组件预览环境。
+- `pnpm --filter pd-shad-ui run storybook`: 启动组件预览环境。
 - `pnpm run release:ui`: 自动化版本更新与发布。
 
 ## 📖 组件文档

@@ -7,7 +7,7 @@
 ### 基础用法
 
 ```tsx
-import { Separator } from "pd-ui"
+import { Separator } from "pd-shad-ui"
 
 export default function Example() {
   return (

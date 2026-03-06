@@ -7,7 +7,7 @@
 ### 基础用法
 
 ```tsx
-import { Skeleton } from "pd-ui"
+import { Skeleton } from "pd-shad-ui"
 
 export default function Example() {
   return (

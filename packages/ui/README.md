@@ -1,4 +1,4 @@
-# pd-ui
+# pd-shad-ui
 
 > A professional-grade, high-performance React UI component library based on Radix UI and Tailwind CSS.
 
@@ -20,26 +20,26 @@
 ## 📦 Installation
 
 ```bash
-pnpm add pd-ui
+pnpm add pd-shad-ui
 ```
 
 ## 🚀 Quick Start
 
 ### 1. Configure Tailwind
 
-Since `pd-ui` uses a custom prefix, update your `tailwind.config.js`:
+Since `pd-shad-ui` uses a custom prefix, update your `tailwind.config.js`:
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
 export default {
   // Add our package to content to ensure classes are scanned
   content: [
-    "./node_modules/pd-ui/dist/**/*.js",
+    "./node_modules/pd-shad-ui/dist/**/*.js",
     // ... your app content
   ],
   theme: {
     extend: {
-      // Import pd-ui theme variables if needed
+      // Import pd-shad-ui theme variables if needed
     },
   },
   plugins: [require("tailwindcss-animate")],
@@ -49,8 +49,8 @@ export default {
 ### 2. Usage
 
 ```tsx
-import { Button } from "pd-ui"
-import "pd-ui/dist/index.css" // Import the base styles
+import { Button } from "pd-shad-ui"
+import "pd-shad-ui/dist/index.css" // Import the base styles
 
 export default function App() {
   return (
@@ -86,7 +86,7 @@ We maintain high standards through automated checks:
 Explore all components in our [Component Documentation](./docs/COMPONENTS.md) or run Storybook locally:
 
 ```bash
-pnpm --filter pd-ui run storybook
+pnpm --filter pd-shad-ui run storybook
 ```
 
 ## 📄 License

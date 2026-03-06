@@ -7,7 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "pd-ui": path.resolve(__dirname, "../../packages/ui/src"),
+      "pd-shad-ui": path.resolve(__dirname, "../../packages/ui/src"),
     },
   },
 })

@@ -14,8 +14,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "pd-ui"
-import { Button } from "pd-ui"
+} from "pd-shad-ui"
+import { Button } from "pd-shad-ui"
 
 export default function Example() {
   return (

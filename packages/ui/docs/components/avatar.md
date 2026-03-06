@@ -7,7 +7,7 @@
 ### 基础用法
 
 ```tsx
-import { Avatar, AvatarFallback, AvatarImage } from "pd-ui"
+import { Avatar, AvatarFallback, AvatarImage } from "pd-shad-ui"
 
 export default function Example() {
   return (

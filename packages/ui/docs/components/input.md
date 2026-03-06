@@ -7,8 +7,8 @@
 ### 基础用法
 
 ```tsx
-import { Input } from "pd-ui"
-import { Label } from "pd-ui"
+import { Input } from "pd-shad-ui"
+import { Label } from "pd-shad-ui"
 
 export default function Example() {
   return (

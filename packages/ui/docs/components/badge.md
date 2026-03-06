@@ -7,7 +7,7 @@
 ### 基础用法
 
 ```tsx
-import { Badge } from "pd-ui"
+import { Badge } from "pd-shad-ui"
 
 export default function Example() {
   return <Badge>Badge</Badge>

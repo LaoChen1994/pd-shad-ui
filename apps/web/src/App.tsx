@@ -25,9 +25,9 @@ import {
   Calendar,
   Toaster,
   ScrollArea,
-} from "pd-ui"
+} from "pd-shad-ui"
 import { CalendarIcon, Loader2 } from "lucide-react"
-import { cn } from "pd-ui/lib/utils"
+import { cn } from "pd-shad-ui/lib/utils"
 
 const formSchema = z.object({
   username: z.string().min(2, {

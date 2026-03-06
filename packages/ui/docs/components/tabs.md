@@ -7,7 +7,7 @@
 ### 基础用法
 
 ```tsx
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "pd-ui"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "pd-shad-ui"
 
 export default function Example() {
   return (

@@ -1,13 +1,18 @@
 {
-  "name": "pd-ui",
+  "name": "pd-shad-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaoChen1994/pd-ui.git"
+  },
+  "homepage": "https://github.com/LaoChen1994/pd-ui",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:ui": "pnpm --filter pd-ui run build",
-    "test:ui": "pnpm --filter pd-ui run test",
+    "build:ui": "pnpm --filter pd-shad-ui run build",
+    "test:ui": "pnpm --filter pd-shad-ui run test",
     "changeset": "changeset",
     "version:ui": "changeset version && pnpm install",
     "release:ui": "pnpm build:ui && pnpm test:ui && changeset publish",

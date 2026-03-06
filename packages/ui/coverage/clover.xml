@@ -4,7 +4,7 @@
     <metrics statements="6" coveredstatements="6" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="2" elements="11" coveredelements="10" complexity="0" loc="6" ncloc="6" packages="2" files="2" classes="2"/>
     <package name="components.ui">
       <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="button.tsx" path="/Users/pidan/Work/Learn/pd-ui/packages/ui/src/components/ui/button.tsx">
+      <file name="button.tsx" path="/Users/pidan/Work/Learn/pd-shad-ui/packages/ui/src/components/ui/button.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
@@ -15,7 +15,7 @@
     </package>
     <package name="lib">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="utils.ts" path="/Users/pidan/Work/Learn/pd-ui/packages/ui/src/lib/utils.ts">
+      <file name="utils.ts" path="/Users/pidan/Work/Learn/pd-shad-ui/packages/ui/src/lib/utils.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="5" type="stmt"/>
       </file>

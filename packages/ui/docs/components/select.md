@@ -13,7 +13,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "pd-ui"
+} from "pd-shad-ui"
 
 export default function Example() {
   return (

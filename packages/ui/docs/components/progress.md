@@ -7,7 +7,7 @@
 ### 基础用法
 
 ```tsx
-import { Progress } from "pd-ui"
+import { Progress } from "pd-shad-ui"
 
 export default function Example() {
   return <Progress value={33} className="pd-w-[60%]" />

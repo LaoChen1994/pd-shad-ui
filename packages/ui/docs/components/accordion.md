@@ -12,7 +12,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "pd-ui"
+} from "pd-shad-ui"
 
 export default function Example() {
   return (

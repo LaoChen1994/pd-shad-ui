@@ -1,8 +1,14 @@
 {
-  "name": "pd-ui",
+  "name": "pd-shad-ui",
   "version": "0.1.0",
   "private": false,
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaoChen1994/pd-ui.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/LaoChen1994/pd-ui/tree/main/packages/ui",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
