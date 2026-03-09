@@ -212,8 +212,8 @@ importers:
         specifier: ^3.2.7
         version: 3.2.7(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))
       '@storybook/addon-a11y':
-        specifier: ^10.2.15
-        version: 10.2.15(storybook@8.5.8(prettier@2.8.8))
+        specifier: ^8.5.8
+        version: 8.5.8(storybook@8.5.8(prettier@2.8.8))
       '@storybook/addon-essentials':
         specifier: 8.5.8
         version: 8.5.8(@types/react@18.3.28)(storybook@8.5.8(prettier@2.8.8))
@@ -224,8 +224,8 @@ importers:
         specifier: 8.5.8
         version: 8.5.8(storybook@8.5.8(prettier@2.8.8))
       '@storybook/addon-themes':
-        specifier: ^10.2.15
-        version: 10.2.15(storybook@8.5.8(prettier@2.8.8))
+        specifier: ^8.5.8
+        version: 8.5.8(storybook@8.5.8(prettier@2.8.8))
       '@storybook/blocks':
         specifier: 8.5.8
         version: 8.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.5.8(prettier@2.8.8))
@@ -1742,10 +1742,10 @@ packages:
   '@standard-schema/utils@0.3.0':
     resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
-  '@storybook/addon-a11y@10.2.15':
-    resolution: {integrity: sha512-lhWG4NbR1o0AOzrCucz2m3AU5pmNSzN4lC7Q2wHjpDSgXokz5xzGvilYlDzCuEvsyPFiivOBx1igwSWdIV4BTw==}
+  '@storybook/addon-a11y@8.5.8':
+    resolution: {integrity: sha512-RaaelnxoJ8cHzLmyaIjDhLMkBVvKCcrULbJBHYTteJD0iEBdWQMaCTqvO9ekXYuMZt0dfTrDc9WMjZGysM2bDA==}
     peerDependencies:
-      storybook: ^10.2.15
+      storybook: ^8.5.8
 
   '@storybook/addon-actions@8.5.8':
     resolution: {integrity: sha512-7J0NAz+WDw1NmvmKIh0Qr5cxgVRDPFC5fmngbDNxedk147TkwrgmqOypgEi/SAksHbTWxJclbimoqdcsNtWffA==}
@@ -1797,10 +1797,10 @@ packages:
     peerDependencies:
       storybook: ^8.5.8
 
-  '@storybook/addon-themes@10.2.15':
-    resolution: {integrity: sha512-7Bh4o49pHAhemg0p5rBzijdfbmLL/fC8xxJgIEAGtkcuIhYvKchVlzpoq5FAaeYJj6GbMaKVMik2lZv6Do1FjA==}
+  '@storybook/addon-themes@8.5.8':
+    resolution: {integrity: sha512-OqohA6mYZ3jm4UHp6W2xbuyHRmZvYtF/u54MaS2fgeZWHMYQ1Tp6O3bhzYu5BBT/wrtfYaSlbatAAFeyb0zucQ==}
     peerDependencies:
-      storybook: ^10.2.15
+      storybook: ^8.5.8
 
   '@storybook/addon-toolbars@8.5.8':
     resolution: {integrity: sha512-AfGdMNBp+vOjyiFKlOyUFLIU0kN1QF4PhVBqd0vYkWAk2w9n6a/ZlG0TcJGe7K5+bcvmZDAerYMKbDMSeg9bAw==}
@@ -5454,9 +5454,10 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
-  '@storybook/addon-a11y@10.2.15(storybook@8.5.8(prettier@2.8.8))':
+  '@storybook/addon-a11y@8.5.8(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
-      '@storybook/global': 5.0.0
+      '@storybook/addon-highlight': 8.5.8(storybook@8.5.8(prettier@2.8.8))
+      '@storybook/test': 8.5.8(storybook@8.5.8(prettier@2.8.8))
       axe-core: 4.11.1
       storybook: 8.5.8(prettier@2.8.8)
 
@@ -5542,7 +5543,7 @@ snapshots:
       storybook: 8.5.8(prettier@2.8.8)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-themes@10.2.15(storybook@8.5.8(prettier@2.8.8))':
+  '@storybook/addon-themes@8.5.8(storybook@8.5.8(prettier@2.8.8))':
     dependencies:
       storybook: 8.5.8(prettier@2.8.8)
       ts-dedent: 2.2.0
