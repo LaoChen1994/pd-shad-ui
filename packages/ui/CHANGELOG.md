@@ -1,5 +1,11 @@
 # pd-shad-ui
 
+## 1.1.1
+
+### Patch Changes
+
+- fix: update build configuration to support CJS and MJS
+
 ## 1.1.0
 
 ### Minor Changes

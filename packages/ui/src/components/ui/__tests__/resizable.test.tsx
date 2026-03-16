@@ -10,9 +10,9 @@ import {
 // Mock react-resizable-panels
 vi.mock('react-resizable-panels', () => {
   return {
-    PanelGroup: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    Group: ({ children, ...props }: any) => <div {...props}>{children}</div>,
     Panel: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    PanelResizeHandle: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+    Separator: ({ children, ...props }: any) => <div {...props}>{children}</div>,
   }
 })
 
