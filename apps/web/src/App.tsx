@@ -28,6 +28,7 @@ import {
 } from "pd-shad-ui"
 import { CalendarIcon, Loader2 } from "lucide-react"
 import { cn } from "pd-shad-ui/lib/utils"
+import { MarkdownExample } from "./components/MarkdownExample"
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -174,6 +175,11 @@ function App() {
             </Form>
           </CardContent>
         </Card>
+
+        <div className="pt-8 border-t">
+          <h2 className="text-2xl font-bold mb-6">Markdown Components Testing</h2>
+          <MarkdownExample />
+        </div>
       </div>
     </div>
   )

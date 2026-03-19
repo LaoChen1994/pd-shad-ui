@@ -27,7 +27,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "pd-shad-ui/*": ["../../packages/ui/src/*"]
+      "pd-shad-ui/*": ["../../packages/ui/src/*"],
+      "pd-markdown-ui/*": ["../../packages/markdown-ui/src/*"],
+      "pd-markdown-ui": ["../../packages/markdown-ui/src/index.ts"]
     }
   },
   "include": ["src"]

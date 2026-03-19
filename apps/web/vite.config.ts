@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
       "pd-shad-ui": path.resolve(__dirname, "../../packages/ui/src"),
+      "pd-markdown-ui": path.resolve(__dirname, "../../packages/markdown-ui/src"),
     },
   },
 })
