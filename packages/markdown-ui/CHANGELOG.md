@@ -1,5 +1,14 @@
 # pd-markdown-ui
 
+## 1.0.3
+
+### Patch Changes
+
+- fix: resolve monorepo dependency issues, component type errors, and normalization of React imports.
+  Includes fixes for Resizable, Pagination, and Zod date validation.
+- Updated dependencies
+  - pd-shad-ui@1.1.2
+
 ## 1.0.2
 
 ### Patch Changes

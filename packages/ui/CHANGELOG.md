@@ -1,5 +1,12 @@
 # pd-shad-ui
 
+## 1.1.2
+
+### Patch Changes
+
+- fix: resolve monorepo dependency issues, component type errors, and normalization of React imports.
+  Includes fixes for Resizable, Pagination, and Zod date validation.
+
 ## 1.1.1
 
 ### Patch Changes
