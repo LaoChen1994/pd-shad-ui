@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 
 export interface ListProps extends React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export interface ListItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Ul = ({ children, className = "", ...props }: ListProps) => (

@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react"
 import {
   Accordion,
@@ -19,8 +20,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => (
-    <Accordion type="single" collapsible className="pd-w-[450px]">
+  args: {
+    type: "single",
+    collapsible: true,
+  },
+  render: (args) => (
+    <Accordion {...args} className="pd-w-[450px]">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>

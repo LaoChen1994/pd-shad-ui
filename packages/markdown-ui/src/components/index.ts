@@ -1,3 +1,4 @@
+import * as React from "react";
 export * from "./heading";
 export * from "./table";
 export * from "./list";

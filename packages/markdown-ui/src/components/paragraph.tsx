@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 
 export interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export interface BlockquoteProps extends React.BlockquoteHTMLAttributes<HTMLQuoteElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const P = ({ children, className = "", ...props }: ParagraphProps) => (

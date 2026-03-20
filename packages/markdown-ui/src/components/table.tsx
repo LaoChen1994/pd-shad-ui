@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { 
   Table, 
   TableHeader, 
@@ -10,7 +10,7 @@ import {
 } from "pd-shad-ui";
 
 export interface TableProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const MarkdownTable = ({ children, className = "", ...props }: TableProps) => (

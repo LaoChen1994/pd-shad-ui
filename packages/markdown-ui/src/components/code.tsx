@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 
 export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export interface PreProps extends React.HTMLAttributes<HTMLPreElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Code = ({ children, className = "", ...props }: CodeProps) => (

@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const H1 = ({ children, className = "", ...props }: HeadingProps) => (

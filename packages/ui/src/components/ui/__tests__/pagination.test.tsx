@@ -1,3 +1,4 @@
+import * as React from "react";
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import { axe } from 'vitest-axe'
@@ -17,13 +18,13 @@ describe('Pagination Component', () => {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" />
+            <PaginationPrevious href="#" size="default" />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" isActive>1</PaginationLink>
+            <PaginationLink href="#" isActive size="icon">1</PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNext href="#" size="default" />
           </PaginationItem>
         </PaginationContent>
       </Pagination>
@@ -37,7 +38,7 @@ describe('Pagination Component', () => {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationLink href="#" isActive>1</PaginationLink>
+            <PaginationLink href="#" isActive size="icon">1</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationEllipsis />

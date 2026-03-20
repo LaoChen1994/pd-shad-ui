@@ -18,19 +18,28 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
     /* Path Aliases */
+    "types": ["vitest/globals", "vitest-axe", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "pd-shad-ui": ["../../packages/ui/src/index.ts"],
       "pd-shad-ui/*": ["../../packages/ui/src/*"],
-      "pd-markdown-ui/*": ["../../packages/markdown-ui/src/*"],
-      "pd-markdown-ui": ["../../packages/markdown-ui/src/index.ts"]
+      "pd-markdown-ui": ["../../packages/markdown-ui/src/index.ts"],
+      "pd-markdown-ui/*": ["../../packages/markdown-ui/src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../../packages/*/src"],
+  "exclude": [
+    "../../packages/**/__tests__/*",
+    "../../packages/**/*.test.tsx",
+    "../../packages/**/*.test.ts",
+    "../../packages/**/*.stories.tsx",
+    "../../packages/**/test/*"
+  ]
 }

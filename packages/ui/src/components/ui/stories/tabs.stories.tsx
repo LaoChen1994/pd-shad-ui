@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../card"

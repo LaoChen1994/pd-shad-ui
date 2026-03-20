@@ -26,7 +26,7 @@ import {
   Toaster,
   ScrollArea,
 } from "pd-shad-ui"
-import { CalendarIcon, Loader2 } from "lucide-react"
+import { CalendarIcon } from "lucide-react"
 import { cn } from "pd-shad-ui/lib/utils"
 import { MarkdownExample } from "./components/MarkdownExample"
 
@@ -37,9 +37,7 @@ const formSchema = z.object({
   description: z.string().min(10, {
     message: "Description must be at least 10 characters.",
   }),
-  dob: z.date({
-    required_error: "A date of birth is required.",
-  }),
+  dob: z.date(),
 })
 
 function App() {
@@ -132,7 +130,7 @@ function App() {
                           <Calendar
                             mode="single"
                             selected={field.value}
-                            onSelect={field.onSelect}
+                            onSelect={field.onChange}
                             disabled={(date) =>
                               date > new Date() || date < new Date("1900-01-01")
                             }

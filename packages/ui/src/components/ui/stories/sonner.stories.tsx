@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react"
 import { Toaster } from "../sonner"
 import { toast } from "sonner"

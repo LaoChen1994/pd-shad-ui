@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react"
 import {
   NavigationMenu,
@@ -8,7 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "../navigation-menu"
-import { cn } from "@/lib/utils"
+import { cn } from "../../../lib/utils"
 import * as React from "react"
 
 const meta: Meta<typeof NavigationMenu> = {
