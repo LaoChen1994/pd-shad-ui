@@ -1,5 +1,14 @@
 # pd-markdown-ui
 
+## 1.0.5
+
+### Patch Changes
+
+- Consolidated fixes for path aliasing, unit testing configuration, and brand consistency.
+  Corrected cross-package dependencies between pd-markdown-ui and pd-shad-ui.
+- Updated dependencies
+  - pd-shad-ui@1.1.4
+
 ## 1.0.4
 
 ### Patch Changes
