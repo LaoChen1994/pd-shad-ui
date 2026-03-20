@@ -1,6 +1,6 @@
 {
   "name": "pd-shad-ui",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "type": "module",
   "repository": {
     "type": "git",
@@ -19,6 +19,16 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./lib/utils": {
+      "types": "./dist/lib/utils.d.ts",
+      "import": "./dist/lib/utils.mjs",
+      "require": "./dist/lib/utils.cjs"
+    },
+    "./components/ui/*": {
+      "types": "./dist/components/ui/*.d.ts",
+      "import": "./dist/components/ui/*.mjs",
+      "require": "./dist/components/ui/*.cjs"
     }
   },
   "files": [

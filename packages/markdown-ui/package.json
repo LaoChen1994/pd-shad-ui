@@ -1,6 +1,6 @@
 {
   "name": "pd-markdown-ui",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -22,7 +22,13 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "pd-shad-ui": "workspace:*"
+    "katex": "^0.16.39",
+    "pd-shad-ui": "workspace:*",
+    "rehype-katex": "^7.0.1",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "shiki": "^4.0.2"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -33,6 +39,7 @@
     "@storybook/react-vite": "^8.5.8",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
+    "@types/katex": "^0.16.8",
     "@vitejs/plugin-react": "^4.3.4",
     "happy-dom": "^15.11.7",
     "storybook": "^8.5.8",

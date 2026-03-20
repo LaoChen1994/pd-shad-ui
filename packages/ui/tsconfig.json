@@ -22,6 +22,7 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
+      "pd-shad-ui/*": ["./src/*"],
       "@/*": ["./src/*"]
     },
     "types": ["vitest/globals", "vitest-axe", "@testing-library/jest-dom"]

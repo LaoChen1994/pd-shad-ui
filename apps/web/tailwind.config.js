@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  prefix: 'pd-',
   darkMode: ["class"],
   content: [
     "./index.html",

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
-import { cn } from "../../lib/utils"
+import { cn } from "pd-shad-ui/lib/utils"
 
 const badgeVariants = cva(
   "pd-inline-flex pd-items-center pd-rounded-full pd-border pd-px-2.5 pd-py-0.5 pd-text-xs pd-font-semibold pd-transition-colors focus:pd-outline-none focus:pd-ring-2 focus:pd-ring-ring focus:pd-ring-offset-2",
