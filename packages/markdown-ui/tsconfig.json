@@ -16,7 +16,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "pd-shad-ui/*": ["../ui/src/*"]
     }
   },
   "include": ["src"]

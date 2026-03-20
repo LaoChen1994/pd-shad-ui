@@ -1,86 +1,100 @@
-# pd-shad-ui
+# pd-ui-monorepo
 
-> 一个基于 Radix UI 与 Tailwind CSS 构建的专业级、高性能 React UI 组件库。
+> 一个基于 Radix UI、Tailwind CSS 与 Shiki 构建的专业级 React UI 与 Markdown 渲染组件库。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-cc00ff.svg)](https://pnpm.io/)
 [![Build Status](https://img.shields.io/badge/Build-Success-brightgreen.svg)]()
-[![Test Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg)]()
-[![Bundle Size](https://img.shields.io/badge/Bundle%20Size-59.2KB-blue.svg)]()
 [![A11y Compliant](https://img.shields.io/badge/A11y-Compliant-success.svg)]()
+
+## 📦 工作区成员 (Workspace Packages)
+
+| 包名 | 描述 | 版本 |
+| :--- | :--- | :--- |
+| **[pd-shad-ui](./packages/ui)** | 基于 Radix UI 的核心基础组件库 | `1.1.3` |
+| **[pd-markdown-ui](./packages/markdown-ui)** | 集成 Shiki 与 KaTeX 的高级 Markdown 渲染库 | `1.0.4` |
+
+---
 
 ## ✨ 核心特性
 
-- 🛡️ **样式隔离 (Style Isolation)**: 所有的 Tailwind 类名均带有 `pd-` 前缀（例如 `pd-bg-primary`），确保在集成到任何宿主项目时，样式永不冲突。
-- ♿ **无障碍优先 (A11y)**: 基于 Radix UI 基础组件构建，并通过 `vitest-axe` 与 Storybook a11y 插件进行严格审计。
-- 🌳 **极致 Tree-shaking**: 采用 `tsup` 构建，原生支持 ESM 与 CJS 格式，`sideEffects: ["**/*.css"]` 确保用户只为使用的组件付费。
-- 🌓 **深色模式 (Dark Mode)**: 内置深色模式适配，并在 Storybook 中提供一键切换预览。
-- 🧪 **100% 测试覆盖**: 核心交互逻辑经过 Vitest + React Testing Library 严苛测试。
-- 💎 **轻量级**: 全量组件 ESM 产物仅约 **60KB**。
+- 🛡️ **样式隔离 (pd- Standard)**: 所有的 Tailwind 类名均带有 `pd-` 前缀（例如 `pd-flex`），确保与宿主项目样式永不冲突。
+- 🚀 **专业路径别名**: 内部全面弃用相对路径，采用 `pd-shad-ui/*` 标准包别名引用，架构更健壮。
+- 🎨 **高级 Markdown 渲染**: 
+  - **Shiki 高亮**: VS Code 同款异步高亮引擎，预设 `github-dark` 主题。
+  - **数学公式**: 完美支持 KaTeX 行内与块级公式渲染。
+  - **交互增强**: 代码块内置“一键复制”按钮与自动语言识别。
+- ♿ **无障碍优先**: 核心组件通过 `vitest-axe` 严格审计，符合 WCAG 标准。
+- 🌳 **极致 Tree-shaking**: 原生支持 ESM/CJS，用户只需为使用的组件买单。
 
-## 📦 安装
-
-```bash
-pnpm add pd-shad-ui
-```
+---
 
 ## 🚀 快速上手
 
-### 1. 配置 Tailwind
+### 1. 安装
 
-由于 `pd-shad-ui` 使用了自定义前缀，你需要更新宿主项目的 `tailwind.config.js`：
+```bash
+pnpm add pd-shad-ui pd-markdown-ui
+```
+
+### 2. 配置 Tailwind
+
+确保宿主项目识别 `pd-` 前缀：
 
 ```javascript
 /** @type {import('tailwindcss').Config} */
 export default {
-  // 必须：将 pd-shad-ui 产物加入扫描范围
+  // 扫描组件库源码/产物
   content: [
     "./node_modules/pd-shad-ui/dist/**/*.js",
-    // ... 你的应用路径
+    "./node_modules/pd-markdown-ui/dist/**/*.js",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {
-      // 可选：在此处覆盖 pd-shad-ui 的 CSS 变量
-    },
-  },
+  // 如果你需要使用 pd-ui 的样式变量
+  theme: { extend: {} },
   plugins: [require("tailwindcss-animate")],
 }
 ```
 
-### 2. 使用组件
+### 3. 使用 UI 组件
 
 ```tsx
 import { Button } from "pd-shad-ui"
-import "pd-shad-ui/dist/index.css" // 导入基础样式
+import "pd-shad-ui/dist/index.css"
 
-export default function App() {
-  return (
-    <Button variant="default" onClick={() => alert("Hello pd-shad-ui!")}>
-      点击我
-    </Button>
-  )
-}
+export const MyComponent = () => <Button>点击我</Button>
 ```
 
-## 🛠️ 工程化指令 (Development)
+### 4. 使用 Markdown 组件
 
-如果你需要参与组件库的开发或构建，可以使用以下命令：
+```tsx
+import ReactMarkdown from 'react-markdown'
+import { components, defaultMarkdownPlugins } from 'pd-markdown-ui'
+import 'katex/dist/katex.min.css'
 
-- `pnpm install`: 安装所有依赖。
-- `pnpm run build:ui`: 编译组件库产物。
-- `pnpm run test:ui`: 运行单元测试及无障碍审计。
-- `pnpm --filter pd-shad-ui run storybook`: 启动组件预览环境。
-- `pnpm run release:ui`: 自动化版本更新与发布。
+const content = "# Hello $E=mc^2$"
 
-## 📖 组件文档
+export const MarkdownBox = () => (
+  <ReactMarkdown 
+    remarkPlugins={defaultMarkdownPlugins.remark}
+    rehypePlugins={defaultMarkdownPlugins.rehype}
+    components={components}
+  >
+    {content}
+  </ReactMarkdown>
+)
+```
 
-我们为所有组件提供了详细的 API 与示例说明：
+---
 
-- **[组件列表索引](./packages/ui/docs/COMPONENTS.md)**
-- [Button 按钮](./packages/ui/docs/components/button.md)
-- [Dialog 对话框](./packages/ui/docs/components/dialog.md)
-- [Input 输入框](./packages/ui/docs/components/input.md)
-- [Select 选择器](./packages/ui/docs/components/select.md)
-- [查看更多...](./packages/ui/docs/COMPONENTS.md)
+## 🛠️ 工程化开发 (Development)
+
+本项目采用 **Vibe Coding** 模式，通过 `AGENTS.md` 固化了开发规范。
+
+- `pnpm dev`: 启动 Demo 演示站点。
+- `pnpm run build`: 全量编译所有包（包含 Shiki 离线包处理）。
+- `pnpm run test:ui`: 运行单元测试与 A11y 审计。
+- `pnpm run release:ui`: 自动化 changeset 版本更新与发布。
 
 ## 📄 开源协议
 
