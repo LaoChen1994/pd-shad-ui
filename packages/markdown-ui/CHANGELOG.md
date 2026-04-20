@@ -1,5 +1,16 @@
 # pd-markdown-ui
 
+## 1.1.0
+
+### Minor Changes
+
+- f10d295: feat: add Vue support
+
+### Patch Changes
+
+- Updated dependencies [f10d295]
+  - pd-shad-ui@1.2.0
+
 ## 1.0.5
 
 ### Patch Changes

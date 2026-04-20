@@ -1,5 +1,11 @@
 # pd-shad-ui
 
+## 1.2.0
+
+### Minor Changes
+
+- f10d295: feat: add Vue support
+
 ## 1.1.4
 
 ### Patch Changes
