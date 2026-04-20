@@ -1,4 +1,3 @@
-import * as React from "react";
 import { clsx, type ClassValue } from "clsx"
 import { extendTailwindMerge } from "tailwind-merge"
 

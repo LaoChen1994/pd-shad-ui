@@ -2,14 +2,17 @@ import * as React from "react";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: {
+    index: "src/index.ts",
+    vue: "src/vue/index.ts",
+  },
   format: ["cjs", "esm"],
   dts: true,
-  splitting: false,
+  splitting: true,
   sourcemap: true,
   clean: true,
   minify: true,
-  external: ["react", "react-dom", "pd-shad-ui"],
+  external: ["react", "react-dom", "vue", "pd-shad-ui"],
   treeshake: true,
   outExtension({ format }) {
     return {
