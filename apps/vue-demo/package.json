@@ -1,7 +1,7 @@
 {
   "name": "vue-demo",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,20 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13",
-    "pd-shad-ui": "workspace:*",
-    "pd-markdown-ui": "workspace:*",
-    "lucide-vue-next": "^0.477.0",
-    "radix-vue": "^1.9.11",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.0.2"
+    "lucide-vue-next": "^0.477.0",
+    "pd-markdown-ui": "workspace:*",
+    "pd-shad-ui": "workspace:*",
+    "radix-vue": "^1.9.11",
+    "tailwind-merge": "^3.0.2",
+    "vue": "^3.5.13",
+    "vue-sonner": "^2.0.9"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
-    "typescript": "^5.7.3",
-    "vite": "^5.4.10",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.10"
   }
 }

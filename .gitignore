@@ -11,6 +11,12 @@ node_modules
 dist
 dist-ssr
 *.local
+storybook-static
+storybook-static-react
+storybook-static-vue
+**/storybook-static
+**/storybook-static-react
+**/storybook-static-vue
 
 # Editor directories and files
 .vscode/*

@@ -1,6 +1,6 @@
 {
   "name": "pd-markdown-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -12,9 +12,9 @@
       "require": "./dist/index.cjs"
     },
     "./vue": {
-      "types": "./dist/vue/index.d.ts",
-      "import": "./dist/vue/index.mjs",
-      "require": "./dist/vue/index.cjs"
+      "types": "./dist/vue.d.ts",
+      "import": "./dist/vue.mjs",
+      "require": "./dist/vue.cjs"
     }
   },
   "files": [
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "katex": "^0.16.39",
+    "lucide-vue-next": "^0.477.0",
     "pd-shad-ui": "workspace:*",
     "rehype-katex": "^7.0.1",
     "rehype-raw": "^7.0.0",
