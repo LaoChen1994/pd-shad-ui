@@ -1,5 +1,11 @@
 # pd-shad-ui
 
+## 2.0.0
+
+### Major Changes
+
+- fe746b2: Fix prefixed Tailwind state utilities in `pd-shad-ui`, restore valid `use client` directives for client-only components, publish a documented `styles.css` entry for package consumers, and add Vue form primitives for closer React/Vue API parity.
+
 ## 1.2.0
 
 ### Minor Changes
