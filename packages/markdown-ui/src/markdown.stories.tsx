@@ -1,85 +1,133 @@
-import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
-import { 
-  H1, H2, H3, H4, H5, H6, P, Blockquote, Ul, Ol, Li, Code, Pre,
-  MarkdownTable, MarkdownTableHeader, MarkdownTableRow, MarkdownTableHead, MarkdownTableBody, MarkdownTableCell,
-  components
-} from "./components";
+import ReactMarkdown from "react-markdown";
+import {
+  Blockquote,
+  Code,
+  H1,
+  H2,
+  Li,
+  MarkdownTable,
+  MarkdownTableBody,
+  MarkdownTableCell,
+  MarkdownTableHead,
+  MarkdownTableHeader,
+  MarkdownTableRow,
+  Ol,
+  P,
+  Ul,
+  components,
+  defaultMarkdownPlugins,
+} from "./index";
 
-const meta: Meta = {
-  title: "Markdown/Components",
-};
+const markdownSample = `# Shipping notes
+
+We upgraded **pd-markdown-ui** with a safer default plugin bundle.
+
+> Markdown content now stays aligned with pd-shad-ui styles.
+
+## Highlights
+
+- GFM tables and task lists
+- KaTeX math support
+- Shared React / Vue code block rendering
+
+### Release snippet
+
+\`inline code\` still uses the compact token style.
+
+\`\`\`tsx
+export function Button() {
+  return <button className="pd-rounded-md">Ship it</button>;
+}
+\`\`\`
+
+| Package | Status |
+| --- | --- |
+| pd-shad-ui | ready |
+| pd-markdown-ui | upgraded |
+
+- [x] Storybook parity
+- [x] Vue test coverage
+
+Euler identity: $e^{i\\pi} + 1 = 0$
+`;
+
+const meta = {
+  title: "Markdown/React",
+  parameters: {
+    layout: "padded",
+  },
+} satisfies Meta;
 
 export default meta;
-
-type Story = StoryObj;
+type Story = StoryObj<typeof meta>;
 
 export const Typography: Story = {
   render: () => (
     <div className="pd-max-w-3xl pd-p-8">
-      <H1>Heading 1</H1>
+      <H1>Markdown typography that matches pd-shad-ui</H1>
       <P>
-        This is a paragraph of text. It demonstrates the spacing and line height of the standard paragraph component.
+        This package gives us semantic markdown building blocks without drifting away from the design system.
       </P>
-      <H2>Heading 2</H2>
-      <Blockquote>
-        This is a blockquote. It's often used for quotes or highlighting important sections of text.
-      </Blockquote>
-      <H3>Heading 3</H3>
+      <H2>Lists and callouts</H2>
+      <Blockquote>Use the exported component map when you want markdown output to share the same visual language as the rest of the app.</Blockquote>
       <Ul>
-        <Li>Unordered list item 1</Li>
-        <Li>Unordered list item 2</Li>
-        <Li>Unordered list item 3</Li>
+        <Li>Ordered and unordered lists stay readable</Li>
+        <Li>Inline code uses a compact muted token style</Li>
+        <Li>Tables inherit the same border and spacing treatment</Li>
       </Ul>
-      <H4>Heading 4</H4>
       <Ol>
-        <Li>Ordered list item 1</Li>
-        <Li>Ordered list item 2</Li>
-        <Li>Ordered list item 3</Li>
+        <Li>Install the package.</Li>
+        <Li>Pass the exported `components` map into your markdown renderer.</Li>
+        <Li>Keep `pd-shad-ui/styles.css` loaded in your app shell.</Li>
       </Ol>
-      <H5>Heading 5</H5>
       <P>
-        Some inline <Code>code snippet</Code> within a paragraph.
+        Inline example: <Code>pnpm --filter pd-markdown-ui run storybook:react</Code>
       </P>
-      <Pre>
-        <code>{`const hello = "world";\nconsole.log(hello);`}</code>
-      </Pre>
-      <H6>Heading 6</H6>
     </div>
   ),
 };
 
-export const Table: Story = {
+export const TablesAndCode: Story = {
   render: () => (
-    <div className="pd-max-w-3xl pd-p-8">
-      <H2>Data Table</H2>
+    <div className="pd-max-w-4xl pd-space-y-8 pd-p-8">
       <MarkdownTable>
         <MarkdownTableHeader>
           <MarkdownTableRow>
-            <MarkdownTableHead>Feature</MarkdownTableHead>
+            <MarkdownTableHead>Capability</MarkdownTableHead>
             <MarkdownTableHead>Status</MarkdownTableHead>
-            <MarkdownTableHead>Notes</MarkdownTableHead>
+            <MarkdownTableHead>Why it matters</MarkdownTableHead>
           </MarkdownTableRow>
         </MarkdownTableHeader>
         <MarkdownTableBody>
           <MarkdownTableRow>
-            <MarkdownTableCell>SEO Support</MarkdownTableCell>
-            <MarkdownTableCell>✅ Yes</MarkdownTableCell>
-            <MarkdownTableCell>Semantic HTML</MarkdownTableCell>
+            <MarkdownTableCell>Shared highlighting</MarkdownTableCell>
+            <MarkdownTableCell>Ready</MarkdownTableCell>
+            <MarkdownTableCell>React and Vue now render fenced code with the same theme rules.</MarkdownTableCell>
           </MarkdownTableRow>
           <MarkdownTableRow>
-            <MarkdownTableCell>SSG Support</MarkdownTableCell>
-            <MarkdownTableCell>✅ Yes</MarkdownTableCell>
-            <MarkdownTableCell>Build-time rendering</MarkdownTableCell>
-          </MarkdownTableRow>
-          <MarkdownTableRow>
-            <MarkdownTableCell>Style</MarkdownTableCell>
-            <MarkdownTableCell>pd-shad-ui</MarkdownTableCell>
-            <MarkdownTableCell>Consistent with UI library</MarkdownTableCell>
+            <MarkdownTableCell>Copy feedback</MarkdownTableCell>
+            <MarkdownTableCell>Ready</MarkdownTableCell>
+            <MarkdownTableCell>Copy success and failure states are both surfaced.</MarkdownTableCell>
           </MarkdownTableRow>
         </MarkdownTableBody>
       </MarkdownTable>
+
+      <Code className="language-ts">{`const release = { name: "pd-markdown-ui", version: "next" }`}</Code>
+    </div>
+  ),
+};
+
+export const FullMarkdownDocument: Story = {
+  render: () => (
+    <div className="pd-max-w-3xl pd-p-8">
+      <ReactMarkdown
+        components={components}
+        remarkPlugins={defaultMarkdownPlugins.remark}
+        rehypePlugins={defaultMarkdownPlugins.rehype}
+      >
+        {markdownSample}
+      </ReactMarkdown>
     </div>
   ),
 };

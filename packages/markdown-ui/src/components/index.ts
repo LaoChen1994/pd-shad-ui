@@ -1,15 +1,22 @@
-import * as React from "react";
-export * from "./heading";
-export * from "./table";
-export * from "./list";
 export * from "./code";
+export * from "./heading";
+export * from "./list";
 export * from "./paragraph";
+export * from "./table";
 
-import { H1, H2, H3, H4, H5, H6 } from "./heading";
-import { MarkdownTable, MarkdownTableHeader, MarkdownTableBody, MarkdownTableFooter, MarkdownTableRow, MarkdownTableHead, MarkdownTableCell } from "./table";
-import { Ul, Ol, Li } from "./list";
 import { Code, Pre } from "./code";
-import { P, Blockquote } from "./paragraph";
+import { H1, H2, H3, H4, H5, H6 } from "./heading";
+import { Li, Ol, Ul } from "./list";
+import { Blockquote, P } from "./paragraph";
+import {
+  MarkdownTable,
+  MarkdownTableBody,
+  MarkdownTableCell,
+  MarkdownTableFooter,
+  MarkdownTableHead,
+  MarkdownTableHeader,
+  MarkdownTableRow,
+} from "./table";
 
 export const components = {
   h1: H1,

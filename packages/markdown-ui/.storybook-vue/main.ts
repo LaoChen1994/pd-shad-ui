@@ -1,8 +1,8 @@
 import path from "node:path";
-import type { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from "@storybook/vue3-vite";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ["../src/vue/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     "@storybook/addon-themes",
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: "@storybook/vue3-vite",
     options: {},
   },
   async viteFinal(config) {
