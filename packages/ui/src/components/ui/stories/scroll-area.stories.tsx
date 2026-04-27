@@ -1,8 +1,7 @@
-import * as React from "react";
+import * as React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { ScrollArea } from "../scroll-area"
 import { Separator } from "../separator"
-import * as React from "react"
 
 const meta: Meta<typeof ScrollArea> = {
   title: "Components/ScrollArea",

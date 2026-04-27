@@ -1,4 +1,4 @@
-"pd-use pd-client"
+"use client"
 
 import { Toaster as Sonner } from "sonner"
 
@@ -11,12 +11,12 @@ const Toaster = ({ ...props }: ToasterProps) => {
       toastOptions={{
         classNames: {
           toast:
-            "group pd-toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:text-muted-foreground",
+            "group pd-toast group-[.toaster]:pd-bg-background group-[.toaster]:pd-text-foreground group-[.toaster]:pd-border-border group-[.toaster]:pd-shadow-lg",
+          description: "group-[.toast]:pd-text-muted-foreground",
           actionButton:
-            "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+            "group-[.toast]:pd-bg-primary group-[.toast]:pd-text-primary-foreground",
           cancelButton:
-            "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
+            "group-[.toast]:pd-bg-muted group-[.toast]:pd-text-muted-foreground",
         },
       }}
       {...props}

@@ -1,101 +1,149 @@
-# pd-ui-monorepo
+# pd-ui
 
-> 一个基于 Radix UI、Tailwind CSS 与 Shiki 构建的专业级 React UI 与 Markdown 渲染组件库。
+Build polished product UIs faster with a design-system-friendly component stack for React, Vue, and rich Markdown rendering.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-cc00ff.svg)](https://pnpm.io/)
-[![Build Status](https://img.shields.io/badge/Build-Success-brightgreen.svg)]()
-[![A11y Compliant](https://img.shields.io/badge/A11y-Compliant-success.svg)]()
+![License: MIT](https://img.shields.io/badge/license-MIT-111111.svg)
+[![Monorepo](https://img.shields.io/badge/monorepo-pnpm-F69220.svg)](https://pnpm.io/)
+[![React](https://img.shields.io/badge/react-supported-61DAFB.svg)](https://react.dev/)
+[![Vue](https://img.shields.io/badge/vue-supported-42B883.svg)](https://vuejs.org/)
+[![Tailwind](https://img.shields.io/badge/tailwind-pd--prefixed-06B6D4.svg)](https://tailwindcss.com/)
 
-## 📦 工作区成员 (Workspace Packages)
+`pd-ui` is a frontend monorepo focused on one thing: helping teams ship consistent UI without fighting style collisions, accessibility regressions, or documentation drift.
 
-| 包名 | 描述 | 版本 |
-| :--- | :--- | :--- |
-| **[pd-shad-ui](./packages/ui)** | 基于 Radix UI 的核心基础组件库 | `1.1.3` |
-| **[pd-markdown-ui](./packages/markdown-ui)** | 集成 Shiki 与 KaTeX 的高级 Markdown 渲染库 | `1.0.4` |
+It currently includes:
+- `pd-shad-ui`: a component library built on Radix primitives and Tailwind CSS
+- `pd-markdown-ui`: a Markdown rendering layer with Shiki-based syntax highlighting and rich content support
 
----
+## Why pd-ui
 
-## ✨ 核心特性
+- `pd-` prefixed Tailwind classes: safer embedding into existing apps and design systems
+- React and Vue support: one visual language, two framework surfaces
+- Accessibility-first primitives: built on top of Radix with testing and Storybook validation
+- Monorepo-friendly architecture: clear package boundaries, alias discipline, and release workflow
+- Markdown rendering that feels production-ready: code highlighting, math support, and better content ergonomics
 
-- 🛡️ **样式隔离 (pd- Standard)**: 所有的 Tailwind 类名均带有 `pd-` 前缀（例如 `pd-flex`），确保与宿主项目样式永不冲突。
-- 🚀 **专业路径别名**: 内部全面弃用相对路径，采用 `pd-shad-ui/*` 标准包别名引用，架构更健壮。
-- 🎨 **高级 Markdown 渲染**: 
-  - **Shiki 高亮**: VS Code 同款异步高亮引擎，预设 `github-dark` 主题。
-  - **数学公式**: 完美支持 KaTeX 行内与块级公式渲染。
-  - **交互增强**: 代码块内置“一键复制”按钮与自动语言识别。
-- ♿ **无障碍优先**: 核心组件通过 `vitest-axe` 严格审计，符合 WCAG 标准。
-- 🌳 **极致 Tree-shaking**: 原生支持 ESM/CJS，用户只需为使用的组件买单。
+## Packages
 
----
+| Package | Description | Docs |
+| --- | --- | --- |
+| `pd-shad-ui` | Shared UI components for React and Vue | [packages/ui/README.md](./packages/ui/README.md) |
+| `pd-markdown-ui` | Markdown UI components and plugin presets | `packages/markdown-ui` |
+| `pd-web-demo` | Local demo app for manual verification | `apps/web` |
 
-## 🚀 快速上手
+## Quick Start
 
-### 1. 安装
+### Install
 
 ```bash
 pnpm add pd-shad-ui pd-markdown-ui
 ```
 
-### 2. 配置 Tailwind
-
-确保宿主项目识别 `pd-` 前缀：
-
-```javascript
-/** @type {import('tailwindcss').Config} */
-export default {
-  // 扫描组件库源码/产物
-  content: [
-    "./node_modules/pd-shad-ui/dist/**/*.js",
-    "./node_modules/pd-markdown-ui/dist/**/*.js",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  // 如果你需要使用 pd-ui 的样式变量
-  theme: { extend: {} },
-  plugins: [require("tailwindcss-animate")],
-}
-```
-
-### 3. 使用 UI 组件
+### Use the UI package in React
 
 ```tsx
 import { Button } from "pd-shad-ui"
-import "pd-shad-ui/dist/index.css"
+import "pd-shad-ui/styles.css"
 
-export const MyComponent = () => <Button>点击我</Button>
+export function App() {
+  return <Button>Ship UI faster</Button>
+}
 ```
 
-### 4. 使用 Markdown 组件
+### Use the UI package in Vue
+
+```ts
+import { Button } from "pd-shad-ui/vue"
+import "pd-shad-ui/styles.css"
+```
+
+### Use the Markdown package
 
 ```tsx
-import ReactMarkdown from 'react-markdown'
-import { components, defaultMarkdownPlugins } from 'pd-markdown-ui'
-import 'katex/dist/katex.min.css'
+import ReactMarkdown from "react-markdown"
+import { components, defaultMarkdownPlugins } from "pd-markdown-ui"
+import "katex/dist/katex.min.css"
 
-const content = "# Hello $E=mc^2$"
+const markdown = `
+# Hello pd-ui
 
-export const MarkdownBox = () => (
-  <ReactMarkdown 
-    remarkPlugins={defaultMarkdownPlugins.remark}
-    rehypePlugins={defaultMarkdownPlugins.rehype}
-    components={components}
-  >
-    {content}
-  </ReactMarkdown>
-)
+\`\`\`ts
+console.log("highlighted by shiki")
+\`\`\`
+`
+
+export function MarkdownPreview() {
+  return (
+    <ReactMarkdown
+      remarkPlugins={defaultMarkdownPlugins.remark}
+      rehypePlugins={defaultMarkdownPlugins.rehype}
+      components={components}
+    >
+      {markdown}
+    </ReactMarkdown>
+  )
+}
 ```
 
----
+## Monorepo Structure
 
-## 🛠️ 工程化开发 (Development)
+```text
+pd-ui/
+├─ apps/
+│  └─ web
+├─ packages/
+│  ├─ markdown-ui
+│  └─ ui
+└─ AGENTS.md
+```
 
-本项目采用 **Vibe Coding** 模式，通过 `AGENTS.md` 固化了开发规范。
+## Local Development
 
-- `pnpm dev`: 启动 Demo 演示站点。
-- `pnpm run build`: 全量编译所有包（包含 Shiki 离线包处理）。
-- `pnpm run test:ui`: 运行单元测试与 A11y 审计。
-- `pnpm run release:ui`: 自动化 changeset 版本更新与发布。
+### Install dependencies
 
-## 📄 开源协议
+```bash
+pnpm install
+```
 
-MIT © [pidan]
+### Common commands
+
+```bash
+pnpm dev
+pnpm build
+pnpm build:ui
+pnpm test:ui
+pnpm lint
+```
+
+### Storybook
+
+`pd-shad-ui` now provides separate Storybook entrypoints for framework-by-framework validation:
+
+```bash
+pnpm --filter pd-shad-ui run storybook:react
+pnpm --filter pd-shad-ui run storybook:vue
+```
+
+Default ports:
+- React Storybook: `http://127.0.0.1:6007`
+- Vue Storybook: `http://127.0.0.1:6008`
+
+## Design Principles
+
+- Style isolation over accidental global coupling
+- API consistency across frameworks where it makes sense
+- Practical accessibility over checkbox-driven abstraction
+- Strong local verification before release
+
+## Contributing
+
+If you are working inside this repo, read [AGENTS.md](./AGENTS.md) first. It captures the project rules around:
+
+- Tailwind prefixing
+- internal package aliasing
+- cross-package imports
+- pre-release verification
+- changeset expectations
+
+## License
+
+MIT

@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "pd-shad-ui/lib/utils"
 
 const labelVariants = cva(
-  "pd-text-sm pd-font-medium pd-leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  "pd-text-sm pd-font-medium pd-leading-none peer-disabled:pd-cursor-not-allowed peer-disabled:opacity-70"
 )
 
 const Label = React.forwardRef<

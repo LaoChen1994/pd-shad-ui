@@ -19,7 +19,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "pd-fixed pd-inset-0 pd-z-50 pd-bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "pd-fixed pd-inset-0 pd-z-50 pd-bg-black/80 data-[state=open]:pd-animate-in data-[state=closed]:pd-animate-out data-[state=closed]:pd-fade-out-0 data-[state=open]:pd-fade-in-0",
       className
     )}
     {...props}
@@ -36,13 +36,13 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        "pd-fixed pd-left-[50%] pd-top-[50%] pd-z-50 pd-grid pd-w-full pd-max-w-lg pd-translate-x-[-50%] pd-translate-y-[-50%] pd-gap-4 pd-border pd-bg-background pd-p-6 pd-shadow-lg pd-duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-[50%] data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-[50%] data-[state=open]:slide-in-from-top-[48%] sm:pd-rounded-lg",
+        "pd-fixed pd-left-[50%] pd-top-[50%] pd-z-50 pd-grid pd-w-full pd-max-w-lg pd-translate-x-[-50%] pd-translate-y-[-50%] pd-gap-4 pd-border pd-bg-background pd-p-6 pd-shadow-lg pd-duration-200 data-[state=open]:pd-animate-in data-[state=closed]:pd-animate-out data-[state=closed]:pd-fade-out-0 data-[state=open]:pd-fade-in-0 data-[state=closed]:pd-zoom-out-95 data-[state=open]:pd-zoom-in-95 data-[state=closed]:pd-slide-out-to-left-[50%] data-[state=closed]:pd-slide-out-to-top-[48%] data-[state=open]:pd-slide-in-from-left-[50%] data-[state=open]:pd-slide-in-from-top-[48%] sm:pd-rounded-lg",
         className
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="pd-absolute pd-right-4 pd-top-4 pd-rounded-sm pd-opacity-70 pd-ring-offset-background pd-transition-opacity hover:pd-opacity-100 focus:pd-outline-none focus:pd-ring-2 focus:pd-ring-ring focus:pd-ring-offset-2 disabled:pd-pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+      <DialogPrimitive.Close className="pd-absolute pd-right-4 pd-top-4 pd-rounded-sm pd-opacity-70 pd-ring-offset-background pd-transition-opacity hover:pd-opacity-100 focus:pd-outline-none focus:pd-ring-2 focus:pd-ring-ring focus:pd-ring-offset-2 disabled:pd-pointer-events-none data-[state=open]:pd-bg-accent data-[state=open]:pd-text-muted-foreground">
         <X className="pd-h-4 pd-w-4" />
         <span className="pd-sr-only">Close</span>
       </DialogPrimitive.Close>

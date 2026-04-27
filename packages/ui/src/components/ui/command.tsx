@@ -1,4 +1,4 @@
-"pd-use pd-client"
+"use client"
 
 import * as React from "react"
 import { type DialogProps } from "@radix-ui/react-dialog"
@@ -27,7 +27,7 @@ const CommandDialog = ({ children, ...props }: DialogProps) => {
   return (
     <Dialog {...props}>
       <DialogContent className="pd-overflow-hidden pd-p-0 pd-shadow-lg">
-        <Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
+        <Command className="[&_[cmdk-group-heading]]:pd-px-2 [&_[cmdk-group-heading]]:pd-font-medium [&_[cmdk-group-heading]]:pd-text-muted-foreground [&_[cmdk-group]]:pd-px-2 [&_[cmdk-input-wrapper]_svg]:pd-h-5 [&_[cmdk-input-wrapper]_svg]:pd-w-5 [&_[cmdk-input]]:pd-h-12 [&_[cmdk-item]]:pd-px-2 [&_[cmdk-item]]:pd-py-3 [&_[cmdk-item]_svg]:pd-h-5 [&_[cmdk-item]_svg]:pd-w-5">
           {children}
         </Command>
       </DialogContent>
@@ -87,7 +87,7 @@ const CommandGroup = React.forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      "pd-overflow-hidden pd-p-1 pd-text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground",
+      "pd-overflow-hidden pd-p-1 pd-text-foreground [&_[cmdk-group-heading]]:pd-px-2 [&_[cmdk-group-heading]]:pd-py-1.5 [&_[cmdk-group-heading]]:pd-text-xs [&_[cmdk-group-heading]]:pd-font-medium [&_[cmdk-group-heading]]:pd-text-muted-foreground",
       className
     )}
     {...props}
@@ -115,7 +115,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "pd-relative pd-flex pd-cursor-default pd-gap-2 pd-select-none pd-items-center pd-rounded-sm pd-px-2 pd-py-1.5 pd-text-sm pd-outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      "pd-relative pd-flex pd-cursor-default pd-gap-2 pd-select-none pd-items-center pd-rounded-sm pd-px-2 pd-py-1.5 pd-text-sm pd-outline-none data-[disabled=true]:pd-pointer-events-none data-[selected=true]:pd-bg-accent data-[selected=true]:pd-text-accent-foreground data-[disabled=true]:pd-opacity-50 [&_svg]:pd-pointer-events-none [&_svg]:pd-size-4 [&_svg]:pd-shrink-0",
       className
     )}
     {...props}

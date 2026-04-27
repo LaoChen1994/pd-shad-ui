@@ -1,4 +1,4 @@
-"pd-use pd-client"
+"use client"
 
 import * as React from "react"
 import { OTPInput, OTPInputContext } from "input-otp"
@@ -16,7 +16,7 @@ const InputOTP = React.forwardRef<
       "pd-flex pd-items-center pd-gap-2 has-[:disabled]:pd-opacity-50",
       containerClassName
     )}
-    className={cn("disabled:cursor-not-allowed", className)}
+    className={cn("disabled:pd-cursor-not-allowed", className)}
     {...props}
   />
 ))

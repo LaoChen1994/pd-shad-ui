@@ -1,9 +1,10 @@
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
-import { cva, type VariantProps } from "class-variance-authority"
+import { type VariantProps } from "class-variance-authority"
 import { X } from "lucide-react"
 
 import { cn } from "pd-shad-ui/lib/utils"
+import { sheetVariants } from "../../variants/sheet"
 
 const Sheet = DialogPrimitive.Root
 
@@ -19,7 +20,7 @@ const SheetOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     className={cn(
-      "pd-fixed pd-inset-0 pd-z-50 pd-bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "pd-fixed pd-inset-0 pd-z-50 pd-bg-black/80 data-[state=open]:pd-animate-in data-[state=closed]:pd-animate-out data-[state=closed]:pd-fade-out-0 data-[state=open]:pd-fade-in-0",
       className
     )}
     {...props}
@@ -27,25 +28,6 @@ const SheetOverlay = React.forwardRef<
   />
 ))
 SheetOverlay.displayName = DialogPrimitive.Overlay.displayName
-
-const sheetVariants = cva(
-  "pd-fixed pd-z-50 pd-gap-4 pd-bg-background pd-p-6 pd-shadow-lg pd-transition pd-ease-in-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
-  {
-    variants: {
-      side: {
-        top: "pd-top-0 pd-left-0 pd-right-0 pd-border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
-        bottom:
-          "pd-bottom-0 pd-left-0 pd-right-0 pd-border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
-        left: "pd-top-0 pd-left-0 pd-h-full pd-w-3/4 pd-border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:pd-max-w-sm",
-        right:
-          "pd-top-0 pd-right-0 pd-h-full pd-w-3/4 pd-border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:pd-max-w-sm",
-      },
-    },
-    defaultVariants: {
-      side: "right",
-    },
-  }
-)
 
 export interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>,
@@ -63,7 +45,7 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="pd-absolute pd-right-4 pd-top-4 pd-rounded-sm pd-opacity-70 pd-ring-offset-background pd-transition-opacity hover:pd-opacity-100 focus:pd-outline-none focus:pd-ring-2 focus:pd-ring-ring focus:pd-ring-offset-2 disabled:pd-pointer-events-none data-[state=open]:bg-secondary">
+      <DialogPrimitive.Close className="pd-absolute pd-right-4 pd-top-4 pd-rounded-sm pd-opacity-70 pd-ring-offset-background pd-transition-opacity hover:pd-opacity-100 focus:pd-outline-none focus:pd-ring-2 focus:pd-ring-ring focus:pd-ring-offset-2 disabled:pd-pointer-events-none data-[state=open]:pd-bg-secondary">
         <X className="pd-h-4 pd-w-4" />
         <span className="pd-sr-only">Close</span>
       </DialogPrimitive.Close>

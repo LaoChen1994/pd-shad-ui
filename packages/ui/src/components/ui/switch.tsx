@@ -9,7 +9,7 @@ const Switch = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SwitchPrimitive.Root
     className={cn(
-      "peer pd-inline-flex pd-h-6 pd-w-11 pd-shrink-0 pd-cursor-pointer pd-items-center pd-rounded-full pd-border-2 pd-border-transparent pd-transition-colors focus-visible:pd-outline-none focus-visible:pd-ring-2 focus-visible:pd-ring-ring focus-visible:pd-ring-offset-2 focus-visible:pd-ring-offset-background disabled:pd-cursor-not-allowed disabled:pd-opacity-50 data-[state=checked]:bg-primary data-[state=checked]:border-primary data-[state=unchecked]:bg-input",
+      "peer pd-inline-flex pd-h-6 pd-w-11 pd-shrink-0 pd-cursor-pointer pd-items-center pd-rounded-full pd-border-2 pd-border-transparent pd-transition-colors focus-visible:pd-outline-none focus-visible:pd-ring-2 focus-visible:pd-ring-ring focus-visible:pd-ring-offset-2 focus-visible:pd-ring-offset-background disabled:pd-cursor-not-allowed disabled:pd-opacity-50 data-[state=checked]:pd-bg-primary data-[state=checked]:pd-border-primary data-[state=unchecked]:pd-bg-input",
       className
     )}
     {...props}
@@ -17,7 +17,7 @@ const Switch = React.forwardRef<
   >
     <SwitchPrimitive.Thumb
       className={cn(
-        "pd-pointer-events-none pd-block pd-h-5 pd-w-5 pd-rounded-full pd-bg-background pd-shadow-lg pd-ring-0 pd-transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
+        "pd-pointer-events-none pd-block pd-h-5 pd-w-5 pd-rounded-full pd-bg-background pd-shadow-lg pd-ring-0 pd-transition-transform data-[state=checked]:pd-translate-x-5 data-[state=unchecked]:pd-translate-x-0"
       )}
     />
   </SwitchPrimitive.Root>

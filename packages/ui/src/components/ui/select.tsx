@@ -17,7 +17,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "pd-flex pd-h-10 pd-w-full pd-items-center pd-justify-between pd-rounded-md pd-border pd-border-input pd-bg-background pd-px-3 pd-py-2 pd-text-sm pd-ring-offset-background placeholder:pd-text-muted-foreground focus:pd-outline-none focus:pd-ring-2 focus:pd-ring-ring focus:pd-ring-offset-2 disabled:pd-cursor-not-allowed disabled:pd-opacity-50 [&>span]:line-clamp-1",
+      "pd-flex pd-h-10 pd-w-full pd-items-center pd-justify-between pd-rounded-md pd-border pd-border-input pd-bg-background pd-px-3 pd-py-2 pd-text-sm pd-ring-offset-background placeholder:pd-text-muted-foreground focus:pd-outline-none focus:pd-ring-2 focus:pd-ring-ring focus:pd-ring-offset-2 disabled:pd-cursor-not-allowed disabled:pd-opacity-50 [&>span]:pd-line-clamp-1",
       className
     )}
     {...props}
@@ -73,9 +73,9 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "pd-relative pd-z-50 pd-max-h-96 pd-min-w-[8rem] pd-overflow-hidden pd-rounded-md pd-border pd-bg-popover pd-text-popover-foreground pd-shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        "pd-relative pd-z-50 pd-max-h-96 pd-min-w-[8rem] pd-overflow-hidden pd-rounded-md pd-border pd-bg-popover pd-text-popover-foreground pd-shadow-md data-[state=open]:pd-animate-in data-[state=closed]:pd-animate-out data-[state=closed]:pd-fade-out-0 data-[state=open]:pd-fade-in-0 data-[state=closed]:pd-zoom-out-95 data-[state=open]:pd-zoom-in-95 data-[side=bottom]:pd-slide-in-from-top-2 data-[side=left]:pd-slide-in-from-right-2 data-[side=right]:pd-slide-in-from-left-2 data-[side=top]:pd-slide-in-from-bottom-2",
         position === "popper" &&
-          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+          "data-[side=bottom]:pd-translate-y-1 data-[side=left]:pd--translate-x-1 data-[side=right]:pd-translate-x-1 data-[side=top]:pd--translate-y-1",
         className
       )}
       position={position}
@@ -116,7 +116,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "pd-relative pd-flex pd-w-full pd-cursor-default pd-select-none pd-items-center pd-rounded-sm pd-py-1.5 pd-pl-8 pd-pr-2 pd-text-sm pd-outline-none focus:pd-bg-accent focus:pd-text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "pd-relative pd-flex pd-w-full pd-cursor-default pd-select-none pd-items-center pd-rounded-sm pd-py-1.5 pd-pl-8 pd-pr-2 pd-text-sm pd-outline-none focus:pd-bg-accent focus:pd-text-accent-foreground data-[disabled]:pd-pointer-events-none data-[disabled]:pd-opacity-50",
       className
     )}
     {...props}

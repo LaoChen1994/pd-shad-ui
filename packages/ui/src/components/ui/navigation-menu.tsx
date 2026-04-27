@@ -1,4 +1,4 @@
-"pd-use pd-client"
+"use client"
 
 import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
@@ -43,7 +43,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  "group pd-inline-flex pd-h-10 pd-w-max pd-items-center pd-justify-center pd-rounded-md pd-bg-background pd-px-4 pd-py-2 pd-text-sm pd-font-medium pd-transition-colors hover:pd-bg-accent hover:pd-text-accent-foreground focus:pd-bg-accent focus:pd-text-accent-foreground focus:pd-outline-none disabled:pd-pointer-events-none disabled:pd-opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+  "group pd-inline-flex pd-h-10 pd-w-max pd-items-center pd-justify-center pd-rounded-md pd-bg-background pd-px-4 pd-py-2 pd-text-sm pd-font-medium pd-transition-colors hover:pd-bg-accent hover:pd-text-accent-foreground focus:pd-bg-accent focus:pd-text-accent-foreground focus:pd-outline-none disabled:pd-pointer-events-none disabled:pd-opacity-50 data-[active]:pd-bg-accent/50 data-[state=open]:pd-bg-accent/50"
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -57,7 +57,7 @@ const NavigationMenuTrigger = React.forwardRef<
   >
     {children}{" "}
     <ChevronDown
-      className="pd-relative pd-top-[1px] pd-ml-1 pd-h-3 pd-w-3 pd-transition pd-duration-200 group-data-[state=open]:rotate-180"
+      className="pd-relative pd-top-[1px] pd-ml-1 pd-h-3 pd-w-3 pd-transition pd-duration-200 group-data-[state=open]:pd-rotate-180"
       aria-hidden="true"
     />
   </NavigationMenuPrimitive.Trigger>
@@ -71,7 +71,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "pd-left-0 pd-top-0 pd-w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:pd-absolute md:pd-w-auto ",
+      "pd-left-0 pd-top-0 pd-w-full data-[motion^=from-]:pd-animate-in data-[motion^=to-]:pd-animate-out data-[motion^=from-]:pd-fade-in data-[motion^=to-]:pd-fade-out data-[motion=from-end]:pd-slide-in-from-right-52 data-[motion=from-start]:pd-slide-in-from-left-52 data-[motion=to-end]:pd-slide-out-to-right-52 data-[motion=to-start]:pd-slide-out-to-left-52 md:pd-absolute md:pd-w-auto ",
       className
     )}
     {...props}
@@ -88,7 +88,7 @@ const NavigationMenuViewport = React.forwardRef<
   <div className={cn("pd-absolute pd-left-0 pd-top-full pd-flex pd-justify-center")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "pd-origin-top-center pd-relative pd-mt-1.5 pd-h-[var(--radix-navigation-menu-viewport-height)] pd-w-full pd-overflow-hidden pd-rounded-md pd-border pd-bg-popover pd-text-popover-foreground pd-shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:zoom-in-90 data-[state=closed]:zoom-out-95 md:pd-w-[var(--radix-navigation-menu-viewport-width)]",
+        "pd-origin-top-center pd-relative pd-mt-1.5 pd-h-[var(--radix-navigation-menu-viewport-height)] pd-w-full pd-overflow-hidden pd-rounded-md pd-border pd-bg-popover pd-text-popover-foreground pd-shadow-lg data-[state=open]:pd-animate-in data-[state=closed]:pd-animate-out data-[state=open]:pd-zoom-in-90 data-[state=closed]:pd-zoom-out-95 md:pd-w-[var(--radix-navigation-menu-viewport-width)]",
         className
       )}
       ref={ref}
@@ -106,7 +106,7 @@ const NavigationMenuIndicator = React.forwardRef<
   <NavigationMenuPrimitive.Indicator
     ref={ref}
     className={cn(
-      "pd-top-full pd-z-[1] pd-flex pd-h-1.5 pd-items-end pd-justify-center pd-overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=visible]:fade-in data-[state=hidden]:fade-out",
+      "pd-top-full pd-z-[1] pd-flex pd-h-1.5 pd-items-end pd-justify-center pd-overflow-hidden data-[state=visible]:pd-animate-in data-[state=hidden]:pd-animate-out data-[state=visible]:pd-fade-in data-[state=hidden]:pd-fade-out",
       className
     )}
     {...props}

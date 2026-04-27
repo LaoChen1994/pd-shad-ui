@@ -21,10 +21,11 @@
       "require": "./dist/index.cjs"
     },
     "./vue": {
-      "types": "./dist/vue/index.d.ts",
-      "import": "./dist/vue/index.mjs",
-      "require": "./dist/vue/index.cjs"
+      "types": "./dist/vue.d.ts",
+      "import": "./dist/vue.mjs",
+      "require": "./dist/vue.cjs"
     },
+    "./styles.css": "./src/globals.css",
     "./lib/utils": {
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.mjs",
@@ -37,10 +38,12 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "src/globals.css"
   ],
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "@internationalized/date": "^3.12.1",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-aspect-ratio": "^1.1.8",
@@ -72,16 +75,18 @@
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "embla-carousel-vue": "^8.6.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.477.0",
-    "radix-vue": "^1.9.11",
     "lucide-vue-next": "^0.477.0",
+    "radix-vue": "^1.9.11",
     "react-day-picker": "^9.14.0",
     "react-hook-form": "^7.71.2",
     "react-resizable-panels": "^4.7.1",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
+    "vue-sonner": "^2.0.9",
     "zod": "^4.3.6"
   },
   "peerDependencies": {
@@ -111,6 +116,8 @@
     "@storybook/react": "8.5.8",
     "@storybook/react-vite": "8.5.8",
     "@storybook/test": "8.5.8",
+    "@storybook/vue3": "8.5.8",
+    "@storybook/vue3-vite": "8.5.8",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
@@ -134,8 +141,12 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook": "pnpm run storybook:react",
+    "storybook:react": "storybook dev -p 6007",
+    "storybook:vue": "storybook dev -c .storybook-vue -p 6008",
+    "build-storybook": "pnpm run build-storybook:react",
+    "build-storybook:react": "storybook build -o storybook-static-react",
+    "build-storybook:vue": "storybook build -c .storybook-vue -o storybook-static-vue",
     "test": "vitest run",
     "test:watch": "vitest"
   }
