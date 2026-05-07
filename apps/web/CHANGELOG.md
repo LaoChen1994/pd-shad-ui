@@ -1,5 +1,19 @@
 # pd-web-demo
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  - pd-markdown-ui@1.3.0
+
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [abac0d7]
+  - pd-markdown-ui@1.2.0
+
 ## 0.1.5
 
 ### Patch Changes

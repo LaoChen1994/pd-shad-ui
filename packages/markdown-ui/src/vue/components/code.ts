@@ -101,21 +101,24 @@ const CodeBlock = defineComponent({
     };
 
     return () =>
-      h("div", { class: "pd-group pd-relative pd-my-6 pd-overflow-hidden pd-rounded-lg pd-border pd-bg-muted" }, [
-        h("div", { class: "pd-absolute pd-right-4 pd-top-4 pd-z-10 pd-flex pd-items-center pd-gap-2 pd-opacity-0 pd-transition-opacity group-hover:pd-opacity-100 group-focus-within:pd-opacity-100" }, [
-          copyState.value === "error"
-            ? h("span", { class: "pd-text-xs pd-font-medium pd-text-destructive" }, "Copy failed")
-            : null,
-          h(
-            "button",
-            {
-              type: "button",
-              onClick: copyToClipboard,
-              class: "pd-flex pd-h-8 pd-w-8 pd-items-center pd-justify-center pd-rounded-md pd-border pd-bg-background pd-text-foreground hover:pd-bg-accent",
-              "aria-label": copyLabel.value,
-            },
-            [copyState.value === "success" ? h(Check, { class: "pd-h-4 pd-w-4 pd-text-green-500" }) : h(Copy, { class: "pd-h-4 pd-w-4" })],
-          ),
+      h("div", { class: "pd-my-6 pd-overflow-hidden pd-rounded-lg pd-border pd-bg-muted/70" }, [
+        h("div", { class: "pd-flex pd-min-h-10 pd-items-center pd-justify-between pd-gap-3 pd-border-b pd-bg-muted pd-px-4 pd-py-2" }, [
+          h("span", { class: "pd-font-mono pd-text-xs pd-font-medium pd-uppercase pd-text-muted-foreground" }, props.language || "text"),
+          h("div", { class: "pd-flex pd-items-center pd-gap-2" }, [
+            copyState.value === "error"
+              ? h("span", { class: "pd-text-xs pd-font-medium pd-text-destructive" }, "Copy failed")
+              : null,
+            h(
+              "button",
+              {
+                type: "button",
+                onClick: copyToClipboard,
+                class: "pd-flex pd-h-7 pd-w-7 pd-items-center pd-justify-center pd-rounded-md pd-border pd-bg-background pd-text-foreground pd-transition-colors hover:pd-bg-accent",
+                "aria-label": copyLabel.value,
+              },
+              [copyState.value === "success" ? h(Check, { class: "pd-h-4 pd-w-4 pd-text-green-500" }) : h(Copy, { class: "pd-h-4 pd-w-4" })],
+            ),
+          ]),
         ]),
         html.value
           ? h("div", {
@@ -123,13 +126,6 @@ const CodeBlock = defineComponent({
               innerHTML: html.value,
             })
           : h("pre", { class: "pd-overflow-x-auto pd-p-4 pd-text-sm pd-font-mono" }, [h("code", null, props.code)]),
-        props.language
-          ? h(
-              "div",
-              { class: "pd-absolute pd-bottom-2 pd-right-4 pd-pointer-events-none pd-text-xs pd-font-mono pd-text-muted-foreground/60" },
-              props.language,
-            )
-          : null,
       ]);
   },
 });

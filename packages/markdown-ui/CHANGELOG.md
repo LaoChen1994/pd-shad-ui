@@ -1,5 +1,17 @@
 # pd-markdown-ui
 
+## 1.3.0
+
+### Minor Changes
+
+- Improve markdown code block headers with integrated language labels and copy actions, and fix the web demo style pipeline for prefixed Tailwind classes.
+
+## 1.2.0
+
+### Minor Changes
+
+- abac0d7: Upgrade `pd-markdown-ui` with shared React and Vue code highlighting, Vue Storybook coverage, Vue component tests, and a rewritten package README.
+
 ## 1.1.1
 
 ### Patch Changes

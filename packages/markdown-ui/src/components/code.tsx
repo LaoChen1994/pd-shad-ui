@@ -106,23 +106,28 @@ const CodeBlock = ({ code, language }: CodeBlockProps) => {
         : "Copy code";
 
   return (
-    <div className="pd-group pd-relative pd-my-6 pd-overflow-hidden pd-rounded-lg pd-border pd-bg-muted">
-      <div className="pd-absolute pd-right-4 pd-top-4 pd-z-10 pd-flex pd-items-center pd-gap-2 pd-opacity-0 pd-transition-opacity group-hover:pd-opacity-100 group-focus-within:pd-opacity-100">
-        {copyState === "error" ? (
-          <span className="pd-text-xs pd-font-medium pd-text-destructive">Copy failed</span>
-        ) : null}
-        <button
-          type="button"
-          onClick={copyToClipboard}
-          className="pd-flex pd-h-8 pd-w-8 pd-items-center pd-justify-center pd-rounded-md pd-border pd-bg-background pd-text-foreground hover:pd-bg-accent"
-          aria-label={copyLabel}
-        >
-          {copyState === "success" ? (
-            <Check className="pd-h-4 pd-w-4 pd-text-green-500" />
-          ) : (
-            <Copy className="pd-h-4 pd-w-4" />
-          )}
-        </button>
+    <div className="pd-my-6 pd-overflow-hidden pd-rounded-lg pd-border pd-bg-muted/70">
+      <div className="pd-flex pd-min-h-10 pd-items-center pd-justify-between pd-gap-3 pd-border-b pd-bg-muted pd-px-4 pd-py-2">
+        <span className="pd-font-mono pd-text-xs pd-font-medium pd-uppercase pd-text-muted-foreground">
+          {language || "text"}
+        </span>
+        <div className="pd-flex pd-items-center pd-gap-2">
+          {copyState === "error" ? (
+            <span className="pd-text-xs pd-font-medium pd-text-destructive">Copy failed</span>
+          ) : null}
+          <button
+            type="button"
+            onClick={copyToClipboard}
+            className="pd-flex pd-h-7 pd-w-7 pd-items-center pd-justify-center pd-rounded-md pd-border pd-bg-background pd-text-foreground pd-transition-colors hover:pd-bg-accent"
+            aria-label={copyLabel}
+          >
+            {copyState === "success" ? (
+              <Check className="pd-h-4 pd-w-4 pd-text-green-500" />
+            ) : (
+              <Copy className="pd-h-4 pd-w-4" />
+            )}
+          </button>
+        </div>
       </div>
 
       {html ? (
@@ -135,12 +140,6 @@ const CodeBlock = ({ code, language }: CodeBlockProps) => {
           <code>{code}</code>
         </pre>
       )}
-
-      {language ? (
-        <div className="pd-absolute pd-bottom-2 pd-right-4 pd-pointer-events-none pd-text-xs pd-font-mono pd-text-muted-foreground/60">
-          {language}
-        </div>
-      ) : null}
     </div>
   );
 };

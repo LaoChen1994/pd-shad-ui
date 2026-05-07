@@ -15,10 +15,15 @@ describe("Code Components", () => {
   });
 
   it("renders fenced code blocks with a language label", async () => {
-    render(<Code className="language-tsx">{`const Button = () => <button />;`}</Code>);
+    const { container } = render(<Code className="language-tsx">{`const Button = () => <button />;`}</Code>);
 
     await waitFor(() => {
-      expect(screen.getByText("tsx")).toBeInTheDocument();
+      const language = screen.getByText("tsx");
+      const header = container.querySelector(".pd-border-b");
+
+      expect(language).toBeInTheDocument();
+      expect(header).toContainElement(language);
+      expect(header).toContainElement(screen.getByRole("button", { name: "Copy code" }));
       expect(document.querySelector(".shiki")).toBeTruthy();
     });
   });

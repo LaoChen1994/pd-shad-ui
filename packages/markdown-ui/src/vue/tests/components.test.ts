@@ -138,7 +138,10 @@ describe("Vue markdown components", () => {
       expect(document.body.textContent).toContain("ts");
     });
 
+    const header = document.querySelector(".pd-border-b");
     const button = document.querySelector("button[aria-label='Copy code']") as HTMLButtonElement | null;
+    expect(header?.textContent).toContain("ts");
+    expect(header?.contains(button)).toBe(true);
     expect(button).toBeTruthy();
     button?.click();
 

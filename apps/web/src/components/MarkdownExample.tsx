@@ -44,30 +44,28 @@ $$
 
 ## Code Blocks
 
+\`\`\`tsx
+import { MarkdownEditor } from "pd-editor-react";
+
+export const Demo = () => {
+  return <MarkdownEditor theme="light" preview="split" />;
+};
+\`\`\`
+
 \`\`\`typescript
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
+type CodeBlockProps = {
+  language: string;
+  code: string;
+};
 
-/**
- * Greets the user with their name.
- * @param user The user object
- */
-function greet(user: User) {
-  console.log(\`Hello, \${user.name}!\`);
-}
-
-const me: User = { id: '1', name: 'Gemini', email: 'ai@google.com' };
-greet(me);
+const getHeaderLabel = ({ language }: CodeBlockProps) => {
+  return language || "text";
+};
 \`\`\`
 
 \`\`\`bash
-# Install dependencies
-pnpm install
-# Start development server
-pnpm dev
+pnpm --filter pd-markdown-ui run test
+pnpm --filter pd-web-demo run dev
 \`\`\`
 
 ## Tables
