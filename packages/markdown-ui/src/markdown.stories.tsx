@@ -79,7 +79,7 @@ export const Typography: Story = {
       <Ol>
         <Li>Install the package.</Li>
         <Li>Pass the exported `components` map into your markdown renderer.</Li>
-        <Li>Keep `pd-shad-ui/styles.css` loaded in your app shell.</Li>
+        <Li>Keep `pd-markdown-ui/styles.css` loaded in your app shell.</Li>
       </Ol>
       <P>
         Inline example: <Code>pnpm --filter pd-markdown-ui run storybook:react</Code>

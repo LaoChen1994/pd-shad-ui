@@ -15,17 +15,35 @@ Markdown primitives for `pd-shad-ui`, with React and Vue entrypoints, Shiki-powe
 pnpm add pd-markdown-ui pd-shad-ui
 ```
 
-If you render math, also load KaTeX styles once in your app shell:
+## Style imports
+
+Import the compiled Markdown styles once in your app shell:
+
+```tsx
+import "pd-markdown-ui/styles.css";
+```
+
+If you also render math through the default KaTeX plugin bundle, import KaTeX styles once as well:
+
+```tsx
+import "katex/dist/katex.min.css";
+```
+
+If your app renders `pd-shad-ui` components outside Markdown, import `pd-shad-ui/styles.css` once as well:
 
 ```tsx
 import "pd-shad-ui/styles.css";
+import "pd-markdown-ui/styles.css";
 import "katex/dist/katex.min.css";
 ```
+
+The CSS entries are precompiled package styles. Consumers do not need to configure Tailwind to scan `pd-markdown-ui` or `pd-shad-ui` package files.
 
 ## Package entrypoints
 
 - React: `pd-markdown-ui`
 - Vue: `pd-markdown-ui/vue`
+- Styles: `pd-markdown-ui/styles.css`
 
 Both entrypoints export:
 
@@ -38,6 +56,7 @@ Both entrypoints export:
 
 ```tsx
 import "pd-shad-ui/styles.css";
+import "pd-markdown-ui/styles.css";
 import "katex/dist/katex.min.css";
 
 import ReactMarkdown from "react-markdown";
@@ -66,6 +85,7 @@ The usual pattern is to keep your existing parser, then map Markdown nodes to th
 
 ```ts
 import "pd-shad-ui/styles.css";
+import "pd-markdown-ui/styles.css";
 import "katex/dist/katex.min.css";
 
 import {

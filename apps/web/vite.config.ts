@@ -5,10 +5,11 @@ import { defineConfig } from "vite"
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "pd-shad-ui": path.resolve(__dirname, "../../packages/ui/src"),
-      "pd-markdown-ui": path.resolve(__dirname, "../../packages/markdown-ui/src"),
-    },
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "./src") },
+      { find: /^pd-shad-ui$/, replacement: path.resolve(__dirname, "../../packages/ui/src/index.ts") },
+      { find: /^pd-shad-ui\/lib\/utils$/, replacement: path.resolve(__dirname, "../../packages/ui/src/lib/utils.ts") },
+      { find: /^pd-markdown-ui$/, replacement: path.resolve(__dirname, "../../packages/markdown-ui/src/index.ts") },
+    ],
   },
 })

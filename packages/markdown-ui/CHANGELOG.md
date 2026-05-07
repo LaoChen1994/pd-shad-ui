@@ -1,5 +1,13 @@
 # pd-markdown-ui
 
+## 1.3.1
+
+### Patch Changes
+
+- Publish compiled CSS style entrypoints so package consumers can import styles without running Tailwind over package source.
+- Updated dependencies
+  - pd-shad-ui@2.1.0
+
 ## 1.3.0
 
 ### Minor Changes
