@@ -1,18 +1,16 @@
-import * as React from "react";
-import { render, screen } from '@testing-library/react'
-import { 
-  MarkdownTable, 
-  MarkdownTableHeader, 
-  MarkdownTableRow, 
-  MarkdownTableHead, 
-  MarkdownTableBody, 
-  MarkdownTableCell 
-} from '../table'
-import { describe, it, expect } from 'vitest'
-import React from 'react'
+import { render, screen } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
+import {
+  MarkdownTable,
+  MarkdownTableBody,
+  MarkdownTableCell,
+  MarkdownTableHead,
+  MarkdownTableHeader,
+  MarkdownTableRow,
+} from "../table";
 
-describe('Table Components', () => {
-  it('renders Table structure correctly', () => {
+describe("Table Components", () => {
+  it("renders table structure correctly", () => {
     render(
       <MarkdownTable>
         <MarkdownTableHeader>
@@ -25,14 +23,11 @@ describe('Table Components', () => {
             <MarkdownTableCell>Cell</MarkdownTableCell>
           </MarkdownTableRow>
         </MarkdownTableBody>
-      </MarkdownTable>
-    )
-    
-    expect(screen.getByText('Header')).toBeInTheDocument()
-    expect(screen.getByText('Cell')).toBeInTheDocument()
-    
-    // Check for some shadcn-ui classes if possible, or just roles
-    const table = screen.getByRole('table')
-    expect(table).toBeInTheDocument()
-  })
-})
+      </MarkdownTable>,
+    );
+
+    expect(screen.getByText("Header")).toBeInTheDocument();
+    expect(screen.getByText("Cell")).toBeInTheDocument();
+    expect(screen.getByRole("table")).toBeInTheDocument();
+  });
+});

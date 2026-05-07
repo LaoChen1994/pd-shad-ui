@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/vue3";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import "../../ui/src/globals.css";
 import "katex/dist/katex.min.css";

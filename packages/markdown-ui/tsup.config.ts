@@ -1,4 +1,3 @@
-import * as React from "react";
 import { defineConfig } from "tsup";
 
 export default defineConfig({

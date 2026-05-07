@@ -64,11 +64,11 @@ function App() {
   }, [isDark])
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300 p-8">
+    <div className="pd-min-h-screen pd-bg-background pd-text-foreground pd-transition-colors pd-duration-300 pd-p-8">
       <Toaster />
-      <div className="max-w-2xl mx-auto space-y-8">
-        <div className="flex justify-between items-center">
-          <h1 className="text-3xl font-bold">New Project</h1>
+      <div className="pd-max-w-2xl pd-mx-auto pd-space-y-8">
+        <div className="pd-flex pd-justify-between pd-items-center">
+          <h1 className="pd-text-3xl pd-font-bold">New Project</h1>
           <Button variant="ghost" onClick={() => setIsDark(!isDark)}>
             {isDark ? "Light Mode" : "Dark Mode"}
           </Button>
@@ -83,7 +83,7 @@ function App() {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="pd-space-y-8">
                 <FormField
                   control={form.control}
                   name="username"
@@ -105,7 +105,7 @@ function App() {
                   control={form.control}
                   name="dob"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col">
+                    <FormItem className="pd-flex pd-flex-col">
                       <FormLabel>Date of birth</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
@@ -113,8 +113,8 @@ function App() {
                             <Button
                               variant={"outline"}
                               className={cn(
-                                "w-[240px] pl-3 text-left font-normal",
-                                !field.value && "text-muted-foreground"
+                                "pd-w-[240px] pd-pl-3 pd-text-left pd-font-normal",
+                                !field.value && "pd-text-muted-foreground"
                               )}
                             >
                               {field.value ? (
@@ -122,11 +122,11 @@ function App() {
                               ) : (
                                 <span>Pick a date</span>
                               )}
-                              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                              <CalendarIcon className="pd-ml-auto pd-h-4 pd-w-4 pd-opacity-50" />
                             </Button>
                           </FormControl>
                         </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
+                        <PopoverContent className="pd-w-auto pd-p-0" align="start">
                           <Calendar
                             mode="single"
                             selected={field.value}
@@ -153,9 +153,9 @@ function App() {
                     <FormItem>
                       <FormLabel>Bio</FormLabel>
                       <FormControl>
-                        <ScrollArea className="h-[100px] w-full rounded-md border p-4">
+                        <ScrollArea className="pd-h-[100px] pd-w-full pd-rounded-md pd-border pd-p-4">
                           <textarea
-                            className="h-full w-full bg-transparent outline-none resize-none text-sm"
+                            className="pd-h-full pd-w-full pd-bg-transparent pd-outline-none pd-resize-none pd-text-sm"
                             placeholder="Tell us a little bit about your project..."
                             {...field}
                           />
@@ -166,7 +166,7 @@ function App() {
                   )}
                 />
                 
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="pd-w-full">
                   Submit Project
                 </Button>
               </form>
@@ -174,8 +174,8 @@ function App() {
           </CardContent>
         </Card>
 
-        <div className="pt-8 border-t">
-          <h2 className="text-2xl font-bold mb-6">Markdown Components Testing</h2>
+        <div className="pd-pt-8 pd-border-t">
+          <h2 className="pd-text-2xl pd-font-bold pd-mb-6">Markdown Components Testing</h2>
           <MarkdownExample />
         </div>
       </div>
