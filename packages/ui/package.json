@@ -1,6 +1,6 @@
 {
   "name": "pd-shad-ui",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "module",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
       "import": "./dist/vue.mjs",
       "require": "./dist/vue.cjs"
     },
-    "./styles.css": "./src/globals.css",
+    "./styles.css": "./dist/styles.css",
     "./lib/utils": {
       "types": "./dist/lib/utils.d.ts",
       "import": "./dist/lib/utils.mjs",
@@ -38,8 +38,7 @@
     }
   },
   "files": [
-    "dist",
-    "src/globals.css"
+    "dist"
   ],
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -139,7 +138,7 @@
     "vitest-axe": "^0.1.0"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tailwindcss -c tailwind.config.js -i src/globals.css -o dist/styles.css --minify",
     "dev": "tsup --watch",
     "storybook": "pnpm run storybook:react",
     "storybook:react": "storybook dev -p 6007",

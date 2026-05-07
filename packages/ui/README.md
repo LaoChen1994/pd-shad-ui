@@ -31,10 +31,21 @@ pnpm add pd-shad-ui
 
 ## Quick Start
 
-### Import the base styles
+### Style imports
+
+Import the compiled base styles once in your app shell:
 
 ```ts
 import "pd-shad-ui/styles.css"
+```
+
+This CSS entry is precompiled. Consumers do not need to configure Tailwind to scan `pd-shad-ui` package files.
+
+If your app also uses `pd-markdown-ui`, import its compiled Markdown styles separately:
+
+```ts
+import "pd-shad-ui/styles.css"
+import "pd-markdown-ui/styles.css"
 ```
 
 ### React usage
@@ -79,15 +90,15 @@ import { Button, Card, CardContent, CardHeader, CardTitle } from "pd-shad-ui/vue
 
 ## Tailwind Setup
 
-Because this package uses a custom `pd-` prefix, make sure your app scans the package output and includes the animation plugin if you use the provided motion classes.
+This setup is only needed if your app writes its own `pd-` prefixed Tailwind classes. Package component styles are already included by `pd-shad-ui/styles.css`.
 
 ```ts
 import type { Config } from "tailwindcss"
 
 export default {
+  prefix: "pd-",
   content: [
     "./src/**/*.{js,ts,jsx,tsx,vue}",
-    "./node_modules/pd-shad-ui/dist/**/*.{js,mjs}",
   ],
   theme: {
     extend: {},

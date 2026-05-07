@@ -1,4 +1,5 @@
-import "pd-shad-ui/globals.css";
+import "pd-shad-ui/styles.css";
+import "pd-markdown-ui/styles.css";
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'

@@ -1,5 +1,11 @@
 # pd-shad-ui
 
+## 2.1.0
+
+### Minor Changes
+
+- Publish compiled CSS style entrypoints so package consumers can import styles without running Tailwind over package source.
+
 ## 2.0.0
 
 ### Major Changes
