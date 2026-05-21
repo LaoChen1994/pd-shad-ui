@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter pd-web-demo run dev",
-    "build": "pnpm --filter pd-web-demo run build",
+    "build": "pnpm --filter pd-shad-ui run build && pnpm --filter pd-markdown-ui run build && pnpm --filter pd-web-demo run build",
     "build:ui": "pnpm --filter pd-shad-ui run build",
     "test:ui": "pnpm --filter pd-shad-ui run test",
     "changeset": "changeset",
