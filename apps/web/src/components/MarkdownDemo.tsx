@@ -10,7 +10,7 @@ type MarkdownDemoProps = {
 export function MarkdownDemo({ content }: MarkdownDemoProps) {
   return (
     <Card>
-      <CardContent className="pd-p-6">
+      <CardContent className="pd-p-8">
         <ReactMarkdown
           remarkPlugins={defaultMarkdownPlugins.remark}
           rehypePlugins={defaultMarkdownPlugins.rehype}
