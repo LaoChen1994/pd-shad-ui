@@ -1,184 +1,286 @@
 import * as React from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { toast } from "sonner"
-import { format } from "date-fns"
-import { 
-  Button, 
-  Card, 
-  CardHeader, 
-  CardTitle, 
-  CardDescription, 
-  CardContent, 
+import {
+  Badge,
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Checkbox,
   Input,
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Calendar,
+  Progress,
+  Separator,
+  Slider,
+  Switch,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
   Toaster,
-  ScrollArea,
 } from "pd-shad-ui"
-import { CalendarIcon } from "lucide-react"
-import { cn } from "pd-shad-ui/lib/utils"
-import { MarkdownExample } from "./components/MarkdownExample"
+import {
+  ArrowRight,
+  Code2,
+  FileText,
+  Github,
+  Moon,
+  Package,
+  Sun,
+} from "lucide-react"
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  description: z.string().min(10, {
-    message: "Description must be at least 10 characters.",
-  }),
-  dob: z.date(),
-})
+const MarkdownExample = React.lazy(() =>
+  import("./components/MarkdownExample").then((module) => ({
+    default: module.MarkdownExample,
+  }))
+)
 
 function App() {
   const [isDark, setIsDark] = React.useState(false)
-  
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      username: "",
-      description: "",
-    },
-  })
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    toast.success("Form submitted successfully!", {
-      description: `User: ${values.username}, Born: ${format(values.dob, "PPP")}`,
-    })
-    console.log(values)
-  }
 
   React.useEffect(() => {
-    if (isDark) document.documentElement.classList.add("dark")
-    else document.documentElement.classList.remove("dark")
+    document.documentElement.classList.toggle("dark", isDark)
   }, [isDark])
 
   return (
-    <div className="pd-min-h-screen pd-bg-background pd-text-foreground pd-transition-colors pd-duration-300 pd-p-8">
+    <div className="pd-min-h-screen pd-bg-background pd-text-foreground">
       <Toaster />
-      <div className="pd-max-w-2xl pd-mx-auto pd-space-y-8">
-        <div className="pd-flex pd-justify-between pd-items-center">
-          <h1 className="pd-text-3xl pd-font-bold">New Project</h1>
-          <Button variant="ghost" onClick={() => setIsDark(!isDark)}>
-            {isDark ? "Light Mode" : "Dark Mode"}
-          </Button>
+      <header className="pd-border-b pd-bg-background/95">
+        <div className="pd-mx-auto pd-flex pd-w-full pd-max-w-6xl pd-items-center pd-justify-between pd-gap-4 pd-px-4 pd-py-4 md:pd-px-6">
+          <div className="pd-flex pd-items-center pd-gap-3">
+            <div className="pd-flex pd-h-10 pd-w-10 pd-items-center pd-justify-center pd-rounded-md pd-border pd-bg-card">
+              <Package className="pd-h-5 pd-w-5" aria-hidden="true" />
+            </div>
+            <div>
+              <p className="pd-text-sm pd-font-medium pd-text-muted-foreground">pd-ui</p>
+              <h1 className="pd-text-xl pd-font-semibold pd-leading-tight">组件库展示</h1>
+            </div>
+          </div>
+          <div className="pd-flex pd-items-center pd-gap-2">
+            <Button variant="outline" size="sm" asChild>
+              <a href="https://github.com/LaoChen1994/pd-shad-ui" target="_blank" rel="noreferrer">
+                <Github className="pd-mr-2 pd-h-4 pd-w-4" aria-hidden="true" />
+                GitHub
+              </a>
+            </Button>
+            <Button variant="ghost" size="sm" onClick={() => setIsDark(!isDark)}>
+              {isDark ? (
+                <Sun className="pd-mr-2 pd-h-4 pd-w-4" aria-hidden="true" />
+              ) : (
+                <Moon className="pd-mr-2 pd-h-4 pd-w-4" aria-hidden="true" />
+              )}
+              {isDark ? "浅色" : "深色"}
+            </Button>
+          </div>
         </div>
+      </header>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Project Details</CardTitle>
-            <CardDescription>
-              Complete the form below to register your new project.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="pd-space-y-8">
-                <FormField
-                  control={form.control}
-                  name="username"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Username</FormLabel>
-                      <FormControl>
-                        <Input placeholder="shadcn" {...field} />
-                      </FormControl>
-                      <FormDescription>
-                        This is your public display name.
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+      <main className="pd-mx-auto pd-w-full pd-max-w-6xl pd-px-4 pd-py-8 md:pd-px-6 md:pd-py-10">
+        <section className="pd-grid pd-gap-6 lg:pd-grid-cols-[1fr_22rem]">
+          <div className="pd-flex pd-flex-col pd-justify-center pd-gap-5">
+            <div className="pd-flex pd-flex-wrap pd-gap-2">
+              <Badge variant="secondary">React</Badge>
+              <Badge variant="outline">Tailwind prefix: pd-</Badge>
+              <Badge variant="outline">GitHub Pages</Badge>
+            </div>
+            <div className="pd-space-y-3">
+              <h2 className="pd-text-4xl pd-font-bold pd-tracking-normal md:pd-text-5xl">
+                pd-shad-ui 与 pd-markdown-ui 展示站
+              </h2>
+              <p className="pd-max-w-2xl pd-text-base pd-leading-7 pd-text-muted-foreground md:pd-text-lg">
+                同一个 GitHub Pages 页面展示基础组件和 Markdown 渲染组件，便于发布后快速检查组件包的真实使用效果。
+              </p>
+            </div>
+            <div className="pd-flex pd-flex-wrap pd-gap-3">
+              <Button asChild>
+                <a href="#showcase">
+                  查看组件
+                  <ArrowRight className="pd-ml-2 pd-h-4 pd-w-4" aria-hidden="true" />
+                </a>
+              </Button>
+              <Button variant="outline" asChild>
+                <a href="https://www.npmjs.com/package/pd-shad-ui" target="_blank" rel="noreferrer">
+                  npm 包
+                </a>
+              </Button>
+            </div>
+          </div>
 
-                <FormField
-                  control={form.control}
-                  name="dob"
-                  render={({ field }) => (
-                    <FormItem className="pd-flex pd-flex-col">
-                      <FormLabel>Date of birth</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <Button
-                              variant={"outline"}
-                              className={cn(
-                                "pd-w-[240px] pd-pl-3 pd-text-left pd-font-normal",
-                                !field.value && "pd-text-muted-foreground"
-                              )}
-                            >
-                              {field.value ? (
-                                format(field.value, "PPP")
-                              ) : (
-                                <span>Pick a date</span>
-                              )}
-                              <CalendarIcon className="pd-ml-auto pd-h-4 pd-w-4 pd-opacity-50" />
-                            </Button>
-                          </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent className="pd-w-auto pd-p-0" align="start">
-                          <Calendar
-                            mode="single"
-                            selected={field.value}
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date("1900-01-01")
-                            }
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
-                      <FormDescription>
-                        Your date of birth is used to calculate your age.
-                      </FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+          <Card>
+            <CardHeader>
+              <CardTitle>发布目标</CardTitle>
+              <CardDescription>展示站由 GitHub Actions 构建并发布到 Pages。</CardDescription>
+            </CardHeader>
+            <CardContent className="pd-space-y-5">
+              <div className="pd-space-y-2">
+                <div className="pd-flex pd-items-center pd-justify-between pd-text-sm">
+                  <span className="pd-text-muted-foreground">组件覆盖</span>
+                  <span className="pd-font-medium">2 packages</span>
+                </div>
+                <Progress value={100} />
+              </div>
+              <Separator />
+              <div className="pd-grid pd-grid-cols-2 pd-gap-3 pd-text-sm">
+                <div className="pd-rounded-md pd-border pd-p-3">
+                  <p className="pd-font-medium">pd-shad-ui</p>
+                  <p className="pd-text-muted-foreground">基础交互组件</p>
+                </div>
+                <div className="pd-rounded-md pd-border pd-p-3">
+                  <p className="pd-font-medium">pd-markdown-ui</p>
+                  <p className="pd-text-muted-foreground">Markdown 渲染</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
-                <FormField
-                  control={form.control}
-                  name="description"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Bio</FormLabel>
-                      <FormControl>
-                        <ScrollArea className="pd-h-[100px] pd-w-full pd-rounded-md pd-border pd-p-4">
-                          <textarea
-                            className="pd-h-full pd-w-full pd-bg-transparent pd-outline-none pd-resize-none pd-text-sm"
-                            placeholder="Tell us a little bit about your project..."
-                            {...field}
-                          />
-                        </ScrollArea>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <Button type="submit" className="pd-w-full">
-                  Submit Project
-                </Button>
-              </form>
-            </Form>
-          </CardContent>
-        </Card>
+        <section id="showcase" className="pd-pt-10">
+          <Tabs defaultValue="shad" className="pd-w-full">
+            <div className="pd-flex pd-flex-col pd-gap-4 sm:pd-flex-row sm:pd-items-end sm:pd-justify-between">
+              <div>
+                <p className="pd-text-sm pd-font-medium pd-text-muted-foreground">Packages</p>
+                <h2 className="pd-text-2xl pd-font-semibold pd-tracking-normal">组件预览</h2>
+              </div>
+              <TabsList className="pd-grid pd-w-full pd-grid-cols-2 sm:pd-w-[22rem]">
+                <TabsTrigger value="shad">
+                  <Code2 className="pd-mr-2 pd-h-4 pd-w-4" aria-hidden="true" />
+                  shad-ui
+                </TabsTrigger>
+                <TabsTrigger value="markdown">
+                  <FileText className="pd-mr-2 pd-h-4 pd-w-4" aria-hidden="true" />
+                  markdown-ui
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
-        <div className="pd-pt-8 pd-border-t">
-          <h2 className="pd-text-2xl pd-font-bold pd-mb-6">Markdown Components Testing</h2>
-          <MarkdownExample />
-        </div>
-      </div>
+            <TabsContent value="shad" className="pd-mt-6">
+              <div className="pd-grid pd-gap-4 md:pd-grid-cols-2">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Inputs</CardTitle>
+                    <CardDescription>表单控件和状态展示。</CardDescription>
+                  </CardHeader>
+                  <CardContent className="pd-space-y-5">
+                    <div className="pd-space-y-2">
+                      <label className="pd-text-sm pd-font-medium" htmlFor="project-name">
+                        项目名称
+                      </label>
+                      <Input id="project-name" defaultValue="pd-ui showcase" />
+                    </div>
+                    <div className="pd-flex pd-items-center pd-justify-between pd-rounded-md pd-border pd-p-3">
+                      <div>
+                        <p className="pd-text-sm pd-font-medium">启用暗色主题</p>
+                        <p className="pd-text-sm pd-text-muted-foreground">同步页面级 class 切换。</p>
+                      </div>
+                      <Switch checked={isDark} onCheckedChange={setIsDark} aria-label="切换暗色主题" />
+                    </div>
+                    <div className="pd-space-y-3">
+                      <div className="pd-flex pd-items-center pd-justify-between">
+                        <span className="pd-text-sm pd-font-medium">展示密度</span>
+                        <span className="pd-text-sm pd-text-muted-foreground">72%</span>
+                      </div>
+                      <Slider defaultValue={[72]} max={100} step={1} aria-label="展示密度" />
+                    </div>
+                    <div className="pd-flex pd-items-center pd-gap-2">
+                      <Checkbox id="release-ready" defaultChecked />
+                      <label className="pd-text-sm pd-font-medium" htmlFor="release-ready">
+                        包构建后可用于 Pages 展示
+                      </label>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Buttons</CardTitle>
+                    <CardDescription>常用按钮、标签和反馈组件。</CardDescription>
+                  </CardHeader>
+                  <CardContent className="pd-space-y-5">
+                    <div className="pd-flex pd-flex-wrap pd-gap-2">
+                      <Button>Primary</Button>
+                      <Button variant="secondary">Secondary</Button>
+                      <Button variant="outline">Outline</Button>
+                      <Button variant="ghost">Ghost</Button>
+                    </div>
+                    <div className="pd-flex pd-flex-wrap pd-gap-2">
+                      <Badge>stable</Badge>
+                      <Badge variant="secondary">workspace</Badge>
+                      <Badge variant="outline">react</Badge>
+                      <Badge variant="destructive">breaking</Badge>
+                    </div>
+                    <Separator />
+                    <div className="pd-space-y-2">
+                      <div className="pd-flex pd-items-center pd-justify-between pd-text-sm">
+                        <span className="pd-text-muted-foreground">构建进度</span>
+                        <span className="pd-font-medium">84%</span>
+                      </div>
+                      <Progress value={84} />
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="md:pd-col-span-2">
+                  <CardHeader>
+                    <CardTitle>Package Matrix</CardTitle>
+                    <CardDescription>展示站覆盖的包和关键能力。</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Package</TableHead>
+                          <TableHead>Scope</TableHead>
+                          <TableHead>Status</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell className="pd-font-medium">pd-shad-ui</TableCell>
+                          <TableCell>Buttons, forms, overlays, data display</TableCell>
+                          <TableCell>
+                            <Badge variant="secondary">showcase</Badge>
+                          </TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell className="pd-font-medium">pd-markdown-ui</TableCell>
+                          <TableCell>GFM, math, code blocks, tables</TableCell>
+                          <TableCell>
+                            <Badge variant="secondary">showcase</Badge>
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="markdown" className="pd-mt-6">
+              <React.Suspense
+                fallback={
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Markdown Rendering Example</CardTitle>
+                      <CardDescription>正在加载 Markdown 展示内容。</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="pd-h-[600px] pd-rounded-md pd-border pd-bg-muted/30" />
+                    </CardContent>
+                  </Card>
+                }
+              >
+                <MarkdownExample />
+              </React.Suspense>
+            </TabsContent>
+          </Tabs>
+        </section>
+      </main>
     </div>
   )
 }
