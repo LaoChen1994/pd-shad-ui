@@ -1,5 +1,11 @@
 # pd-shad-ui
 
+## 2.1.1
+
+### Patch Changes
+
+- dd80aec: Add the GitHub Pages showcase and release workflow coverage for the UI packages.
+
 ## 2.1.0
 
 ### Minor Changes
