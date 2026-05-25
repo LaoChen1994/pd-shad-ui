@@ -10,7 +10,7 @@
     "test:ui": "pnpm --filter pd-shad-ui run test",
     "changeset": "changeset",
     "version:ui": "changeset version && pnpm install",
-    "release:ui": "pnpm build:ui && pnpm test:ui && changeset publish",
+    "release:ui": "pnpm build && pnpm --filter pd-shad-ui run test && pnpm --filter pd-markdown-ui run test && pnpm lint && changeset publish",
     "lint": "eslint .",
     "preview": "pnpm --filter pd-web-demo run preview"
   },
