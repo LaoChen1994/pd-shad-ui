@@ -1,5 +1,13 @@
 # pd-markdown-ui
 
+## 1.3.2
+
+### Patch Changes
+
+- dd80aec: Add the GitHub Pages showcase and release workflow coverage for the UI packages.
+- Updated dependencies [dd80aec]
+  - pd-shad-ui@2.1.1
+
 ## 1.3.1
 
 ### Patch Changes
