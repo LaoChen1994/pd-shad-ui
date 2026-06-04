@@ -1,5 +1,12 @@
 # vue-demo
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [3fc5232]
+  - pd-markdown-ui@1.4.0
+
 ## 0.0.5
 
 ### Patch Changes
