@@ -1,5 +1,11 @@
 # pd-markdown-ui
 
+## 1.4.0
+
+### Minor Changes
+
+- 3fc5232: Add Mermaid rendering for fenced `mermaid` code blocks with configurable Mermaid theme and wrapper styles.
+
 ## 1.3.2
 
 ### Patch Changes
