@@ -253,6 +253,7 @@ const markdownItems = [
   { name: "Typography", route: "pd-markdown-ui/typography", description: "标题、段落、链接和引用。" },
   { name: "Lists", route: "pd-markdown-ui/lists", description: "有序、无序和任务列表。" },
   { name: "Code", route: "pd-markdown-ui/code", description: "行内代码、Shiki 代码块和命令片段。" },
+  { name: "Mermaid", route: "pd-markdown-ui/mermaid", description: "Mermaid 流程图渲染和主题样式。" },
   { name: "Table", route: "pd-markdown-ui/table", description: "GFM 表格和对齐方式。" },
   { name: "Math", route: "pd-markdown-ui/math", description: "remark-math 与 KaTeX 公式。" },
 ]
@@ -407,7 +408,7 @@ function App() {
                         )}
                         href={`#${item.route}`}
                       >
-                        {item.route.endsWith("code") ? (
+                        {item.route.endsWith("code") || item.route.endsWith("mermaid") ? (
                           <FileCode2 className="pd-h-4 pd-w-4" aria-hidden="true" />
                         ) : item.route.endsWith("table") ? (
                           <Table2 className="pd-h-4 pd-w-4" aria-hidden="true" />
@@ -1299,6 +1300,11 @@ function App() {
                   {route === "pd-markdown-ui/code" && (
                     <MarkdownDemo
                       content={`## Code blocks\n\nInline code uses \`pd-markdown-ui\` styles.\n\n\`\`\`tsx\nimport ReactMarkdown from "react-markdown";\nimport { components, defaultMarkdownPlugins } from "pd-markdown-ui";\n\nexport function Preview({ content }: { content: string }) {\n  return (\n    <ReactMarkdown\n      remarkPlugins={defaultMarkdownPlugins.remark}\n      rehypePlugins={defaultMarkdownPlugins.rehype}\n      components={components}\n    >\n      {content}\n    </ReactMarkdown>\n  );\n}\n\`\`\`\n\n\`\`\`bash\npnpm --filter pd-markdown-ui run test\npnpm --filter pd-web-demo run build\n\`\`\``}
+                    />
+                  )}
+                  {route === "pd-markdown-ui/mermaid" && (
+                    <MarkdownDemo
+                      content={`## Mermaid diagrams\n\nFenced \`mermaid\` blocks render as diagrams with the default pd theme. Consumers can override Mermaid theme variables and wrapper styles through \`setMarkdownMermaidConfig\`.\n\n\`\`\`mermaid\nflowchart TD\n  A[Write markdown] --> B[Render Mermaid]\n  B --> C[Publish docs]\n  B --> D{Need custom style?}\n  D -->|Yes| E[Use themeVariables]\n  D -->|No| C\n\`\`\`\n\n\`\`\`ts\nimport { setMarkdownMermaidConfig } from "pd-markdown-ui";\n\nsetMarkdownMermaidConfig({\n  mermaid: {\n    theme: "base",\n    themeVariables: {\n      primaryBorderColor: "#2563eb",\n      primaryTextColor: "#0f172a",\n    },\n  },\n});\n\`\`\``}
                     />
                   )}
                   {route === "pd-markdown-ui/table" && (

@@ -92,6 +92,9 @@ export const TablesAndCode: Story = {
         </MarkdownTable>
 
         <Code class="language-ts">const release = { name: "pd-markdown-ui", version: "next" }</Code>
+        <Code class="language-mermaid">flowchart TD
+  A[Write markdown] --> B[Render Mermaid]
+  B --> C[Publish docs]</Code>
       </div>
     `,
   }),

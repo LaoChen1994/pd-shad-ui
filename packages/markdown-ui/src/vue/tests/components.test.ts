@@ -1,12 +1,22 @@
 import { createApp, h, nextTick, type Component, type VNodeChild } from "vue";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { resetMarkdownCodeConfig, setMarkdownCodeConfig } from "../../shared/code";
+import { resetMarkdownMermaidConfig, setMarkdownMermaidConfig } from "../../shared/mermaid";
 import { Code, Pre } from "../components/code";
 import { components } from "../components";
 import { H1 } from "../components/heading";
 import { Li, Ol, Ul } from "../components/list";
 import { Blockquote, P } from "../components/paragraph";
 import { MarkdownTable, MarkdownTableBody, MarkdownTableCell, MarkdownTableHead, MarkdownTableHeader, MarkdownTableRow } from "../components/table";
+
+vi.mock("mermaid", () => ({
+  default: {
+    initialize: vi.fn(),
+    render: vi.fn().mockResolvedValue({
+      svg: "<svg data-testid=\"mermaid-svg\"></svg>",
+    }),
+  },
+}));
 
 const mountedApps: Array<() => void> = [];
 
@@ -41,6 +51,7 @@ afterEach(() => {
     mountedApps.pop()?.();
   }
   resetMarkdownCodeConfig();
+  resetMarkdownMermaidConfig();
 });
 
 describe("Vue markdown components", () => {
@@ -163,6 +174,42 @@ describe("Vue markdown components", () => {
     await vi.waitFor(() => {
       expect(document.querySelector(".shiki.github-light")).toBeTruthy();
     });
+  });
+
+  it("renders mermaid fenced blocks through mermaid", async () => {
+    const mermaid = (await import("mermaid")).default;
+    setMarkdownMermaidConfig({
+      mermaid: {
+        theme: "dark",
+        themeVariables: {
+          primaryColor: "#f8fafc",
+        },
+      },
+      className: "pd-my-6 pd-custom-mermaid",
+    });
+
+    const { container } = mountComponent(Code, {
+      props: { class: "language-mermaid" },
+      slots: {
+        default: () => "flowchart TD\nA --> B",
+      },
+    });
+
+    await vi.waitFor(() => {
+      expect(container.querySelector("[data-testid='mermaid-svg']")).toBeTruthy();
+    });
+
+    expect(container.querySelector(".pd-custom-mermaid")).toBeTruthy();
+    expect(document.querySelector("button[aria-label='Copy code']")).toBeFalsy();
+    expect(mermaid.initialize).toHaveBeenCalledWith(
+      expect.objectContaining({
+        theme: "dark",
+        themeVariables: {
+          primaryColor: "#f8fafc",
+        },
+      }),
+    );
+    expect(mermaid.render).toHaveBeenCalledWith(expect.stringMatching(/^pd-mermaid-vue-/), "flowchart TD\nA --> B");
   });
 
   it("keeps the component export map aligned", () => {

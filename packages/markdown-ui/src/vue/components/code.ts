@@ -8,6 +8,12 @@ import {
   getHighlighter,
   getMarkdownCodeConfig,
 } from "../../shared/code";
+import {
+  getMarkdownMermaidConfig,
+  renderMermaidDiagram,
+} from "../../shared/mermaid";
+
+let mermaidId = 0;
 
 function extractVueText(nodes: VNode[] | undefined): string {
   if (!nodes) {
@@ -130,6 +136,50 @@ const CodeBlock = defineComponent({
   },
 });
 
+const MermaidBlock = defineComponent({
+  name: "MermaidBlock",
+  props: {
+    code: { type: String, required: true },
+  },
+  setup(props) {
+    const html = ref("");
+    const hasError = ref(false);
+    const id = `pd-mermaid-vue-${mermaidId}`;
+    mermaidId += 1;
+
+    const renderDiagram = async () => {
+      try {
+        html.value = await renderMermaidDiagram(id, props.code);
+        hasError.value = false;
+      } catch {
+        html.value = "";
+        hasError.value = true;
+      }
+    };
+
+    watch(
+      () => props.code,
+      () => {
+        void renderDiagram();
+      },
+      { immediate: true },
+    );
+
+    return () => {
+      const config = getMarkdownMermaidConfig();
+
+      if (hasError.value) {
+        return h("pre", { class: config.errorClassName }, props.code);
+      }
+
+      return h("div", {
+        class: config.className,
+        innerHTML: html.value,
+      });
+    };
+  },
+});
+
 export const Code = defineComponent({
   name: "Code",
   props: { class: { type: String, default: "" } },
@@ -151,10 +201,14 @@ export const Code = defineComponent({
         );
       }
 
-      return h(CodeBlock, {
-        language: extractLanguage(props.class),
-        code: extractVueText(slots.default?.()).trim(),
-      });
+      const language = extractLanguage(props.class);
+      const code = extractVueText(slots.default?.()).trim();
+
+      if (language === "mermaid") {
+        return h(MermaidBlock, { code });
+      }
+
+      return h(CodeBlock, { language, code });
     };
   },
 });

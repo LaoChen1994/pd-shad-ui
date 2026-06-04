@@ -5,6 +5,7 @@ import remarkMath from "remark-math";
 
 export * from "./components";
 export * from "../shared/code";
+export * from "../shared/mermaid";
 
 export const defaultMarkdownPlugins = {
   remark: [remarkGfm, remarkMath],
