@@ -1,12 +1,13 @@
 # pd-markdown-ui
 
-Markdown primitives for `pd-shad-ui`, with React and Vue entrypoints, Shiki-powered code blocks, and a sensible default plugin bundle for GFM, math, raw HTML, and KaTeX.
+Markdown primitives for `pd-shad-ui`, with React and Vue entrypoints, Shiki-powered code blocks, Mermaid diagrams, and a sensible default plugin bundle for GFM, math, raw HTML, and KaTeX.
 
 ## Why use it
 
 - Shared visual language: Markdown output matches the same typography, spacing, tables, and code treatment as `pd-shad-ui`
 - Dual-framework ready: `pd-markdown-ui` for React, `pd-markdown-ui/vue` for Vue
 - Better code blocks by default: Shiki highlighting, copy action, theme control, and extensible language support
+- Mermaid diagrams: fenced `mermaid` blocks render as diagrams with configurable theme and container styles
 - Batteries included: `defaultMarkdownPlugins` wires up `remark-gfm`, `remark-math`, `rehype-raw`, and `rehype-katex`
 
 ## Installation
@@ -51,6 +52,7 @@ Both entrypoints export:
 - `defaultMarkdownPlugins`
 - individual primitives such as `H1`, `P`, `Code`, `MarkdownTable`
 - code highlight helpers such as `setMarkdownCodeConfig`
+- Mermaid helpers such as `setMarkdownMermaidConfig`
 
 ## React quick start
 
@@ -137,6 +139,39 @@ Available theme modes:
 - `dark`
 - `auto`
 
+## Mermaid diagrams
+
+Fenced `mermaid` code blocks are rendered through Mermaid instead of the Shiki code block UI:
+
+````md
+```mermaid
+flowchart TD
+  A[Draft markdown] --> B[Render diagram]
+  B --> C[Ship docs]
+```
+````
+
+You can customize Mermaid itself and the surrounding `pd-markdown-ui` container globally:
+
+```ts
+import { setMarkdownMermaidConfig } from "pd-markdown-ui";
+
+setMarkdownMermaidConfig({
+  mermaid: {
+    theme: "base",
+    themeVariables: {
+      primaryColor: "#f8fafc",
+      primaryTextColor: "#0f172a",
+      lineColor: "#2563eb",
+    },
+  },
+  className:
+    "pd-my-6 pd-overflow-x-auto pd-rounded-lg pd-border pd-bg-card pd-p-4 [&_svg]:pd-mx-auto [&_svg]:pd-max-w-full",
+});
+```
+
+The `mermaid` option is passed to Mermaid's `initialize` API. Use `className` for the rendered diagram wrapper and `errorClassName` for invalid diagram fallback styling.
+
 ## Default plugin bundle
 
 `defaultMarkdownPlugins` includes:
@@ -152,6 +187,7 @@ This gives you:
 - task lists
 - strikethrough
 - fenced code blocks
+- Mermaid diagrams through fenced `mermaid` blocks
 - inline and block math
 - raw HTML passthrough
 

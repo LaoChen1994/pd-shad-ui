@@ -11,6 +11,10 @@ import {
   getMarkdownCodeConfig,
   toPlainText,
 } from "../shared/code";
+import {
+  getMarkdownMermaidConfig,
+  renderMermaidDiagram,
+} from "../shared/mermaid";
 
 export interface CodeProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
@@ -40,7 +44,60 @@ export const Code = ({ children, className = "", ...props }: CodeProps) => {
   const language = extractLanguage(className);
   const code = toPlainText(children).trim();
 
+  if (language === "mermaid") {
+    return <MermaidBlock code={code} />;
+  }
+
   return <CodeBlock code={code} language={language} />;
+};
+
+interface MermaidBlockProps {
+  code: string;
+}
+
+const MermaidBlock = ({ code }: MermaidBlockProps) => {
+  const id = React.useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const [html, setHtml] = React.useState("");
+  const [hasError, setHasError] = React.useState(false);
+
+  React.useEffect(() => {
+    let isMounted = true;
+
+    renderMermaidDiagram(`pd-mermaid-${id}`, code)
+      .then((svg) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setHtml(svg);
+        setHasError(false);
+      })
+      .catch(() => {
+        if (!isMounted) {
+          return;
+        }
+
+        setHtml("");
+        setHasError(true);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [code, id]);
+
+  const config = getMarkdownMermaidConfig();
+
+  if (hasError) {
+    return <pre className={config.errorClassName}>{code}</pre>;
+  }
+
+  return (
+    <div
+      className={config.className}
+      dangerouslySetInnerHTML={html ? { __html: html } : undefined}
+    />
+  );
 };
 
 interface CodeBlockProps {

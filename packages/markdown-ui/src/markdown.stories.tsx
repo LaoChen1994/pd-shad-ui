@@ -30,6 +30,7 @@ We upgraded **pd-markdown-ui** with a safer default plugin bundle.
 - GFM tables and task lists
 - KaTeX math support
 - Shared React / Vue code block rendering
+- Mermaid diagram rendering
 
 ### Release snippet
 
@@ -39,6 +40,12 @@ We upgraded **pd-markdown-ui** with a safer default plugin bundle.
 export function Button() {
   return <button className="pd-rounded-md">Ship it</button>;
 }
+\`\`\`
+
+\`\`\`mermaid
+flowchart TD
+  A[Write markdown] --> B[Render Mermaid]
+  B --> C[Publish docs]
 \`\`\`
 
 | Package | Status |
@@ -114,6 +121,9 @@ export const TablesAndCode: Story = {
       </MarkdownTable>
 
       <Code className="language-ts">{`const release = { name: "pd-markdown-ui", version: "next" }`}</Code>
+      <Code className="language-mermaid">{`flowchart TD
+  A[Write markdown] --> B[Render Mermaid]
+  B --> C[Publish docs]`}</Code>
     </div>
   ),
 };
