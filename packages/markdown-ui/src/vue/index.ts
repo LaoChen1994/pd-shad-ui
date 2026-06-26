@@ -9,6 +9,11 @@ export * from "../shared/mermaid";
 
 export const defaultMarkdownPlugins = {
   remark: [remarkGfm, remarkMath],
+  rehype: [rehypeKatex],
+};
+
+export const trustedMarkdownPlugins = {
+  remark: [remarkGfm, remarkMath],
   rehype: [rehypeRaw, rehypeKatex],
 };
 

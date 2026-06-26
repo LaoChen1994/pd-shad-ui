@@ -130,7 +130,7 @@ export const MathAndGfm: Story = {
             </li>
             <li class="pd-flex pd-items-center pd-gap-3">
               <input checked disabled type="checkbox" class="pd-h-4 pd-w-4" />
-              <span>Raw HTML and KaTeX ready through the default plugin bundle</span>
+              <span>KaTeX ready through the default plugin bundle</span>
             </li>
           </ul>
         </div>

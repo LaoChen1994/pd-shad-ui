@@ -161,6 +161,7 @@ import {
   Table2,
   Type,
 } from "lucide-react"
+import "./App.css"
 
 const MarkdownDemo = React.lazy(() =>
   import("./components/MarkdownDemo").then((module) => ({
@@ -329,17 +330,8 @@ function App() {
           </div>
         </header>
 
-        <div
-          className="pd-grid"
-          style={{
-            gridTemplateColumns: "18rem minmax(48rem, 1fr)",
-            minHeight: "calc(100vh - 4rem)",
-          }}
-        >
-          <aside
-            className="pd-sticky pd-top-16 pd-overflow-y-auto pd-border-r pd-bg-background"
-            style={{ height: "calc(100vh - 4rem)" }}
-          >
+        <div className="pd-demo-shell">
+          <aside className="pd-demo-sidebar">
             <nav className="pd-flex pd-flex-col pd-p-6" style={{ gap: "2rem" }}>
               <div className="pd-flex pd-flex-col" style={{ gap: "0.75rem" }}>
                 <p className="pd-text-xs pd-font-medium pd-uppercase pd-tracking-wide pd-text-muted-foreground">Packages</p>

@@ -1,6 +1,18 @@
 {
   "name": "pd-markdown-ui",
   "version": "1.4.0",
+  "description": "React and Vue Markdown UI components with Shiki, Mermaid, GFM, math, and KaTeX defaults.",
+  "keywords": [
+    "markdown",
+    "react",
+    "vue",
+    "shiki",
+    "mermaid",
+    "gfm",
+    "katex",
+    "components"
+  ],
+  "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
@@ -8,6 +20,9 @@
     "directory": "packages/markdown-ui"
   },
   "homepage": "https://github.com/LaoChen1994/pd-ui/tree/main/packages/markdown-ui",
+  "bugs": {
+    "url": "https://github.com/LaoChen1994/pd-ui/issues"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
