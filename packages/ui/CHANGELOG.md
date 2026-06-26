@@ -1,5 +1,11 @@
 # pd-shad-ui
 
+## 3.0.0
+
+### Major Changes
+
+- 1a92ced: Improve package metadata, publish stable component subpath entries, make Markdown raw HTML opt-in through `trustedMarkdownPlugins`, and improve the demo layout on small screens.
+
 ## 2.1.1
 
 ### Patch Changes

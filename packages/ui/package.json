@@ -1,6 +1,6 @@
 {
   "name": "pd-shad-ui",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Accessible React and Vue UI components with pd-prefixed Tailwind styles.",
   "keywords": [
     "react",

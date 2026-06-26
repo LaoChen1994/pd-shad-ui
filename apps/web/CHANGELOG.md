@@ -1,5 +1,13 @@
 # pd-web-demo
 
+## 0.1.10
+
+### Patch Changes
+
+- Updated dependencies [1a92ced]
+  - pd-shad-ui@3.0.0
+  - pd-markdown-ui@2.0.0
+
 ## 0.1.9
 
 ### Patch Changes

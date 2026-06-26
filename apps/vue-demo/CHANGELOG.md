@@ -1,5 +1,13 @@
 # vue-demo
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [1a92ced]
+  - pd-shad-ui@3.0.0
+  - pd-markdown-ui@2.0.0
+
 ## 0.0.6
 
 ### Patch Changes
