@@ -1,6 +1,6 @@
 # pd-markdown-ui
 
-Markdown primitives for `pd-shad-ui`, with React and Vue entrypoints, Shiki-powered code blocks, Mermaid diagrams, and a sensible default plugin bundle for GFM, math, raw HTML, and KaTeX.
+Markdown primitives for `pd-shad-ui`, with React and Vue entrypoints, Shiki-powered code blocks, Mermaid diagrams, and a sensible default plugin bundle for GFM, math, and KaTeX.
 
 ## Why use it
 
@@ -8,7 +8,7 @@ Markdown primitives for `pd-shad-ui`, with React and Vue entrypoints, Shiki-powe
 - Dual-framework ready: `pd-markdown-ui` for React, `pd-markdown-ui/vue` for Vue
 - Better code blocks by default: Shiki highlighting, copy action, theme control, and extensible language support
 - Mermaid diagrams: fenced `mermaid` blocks render as diagrams with configurable theme and container styles
-- Batteries included: `defaultMarkdownPlugins` wires up `remark-gfm`, `remark-math`, `rehype-raw`, and `rehype-katex`
+- Batteries included: `defaultMarkdownPlugins` wires up `remark-gfm`, `remark-math`, and `rehype-katex`
 
 ## Installation
 
@@ -50,6 +50,7 @@ Both entrypoints export:
 
 - `components`
 - `defaultMarkdownPlugins`
+- `trustedMarkdownPlugins`
 - individual primitives such as `H1`, `P`, `Code`, `MarkdownTable`
 - code highlight helpers such as `setMarkdownCodeConfig`
 - Mermaid helpers such as `setMarkdownMermaidConfig`
@@ -97,6 +98,7 @@ import {
   P,
   components,
   defaultMarkdownPlugins,
+  trustedMarkdownPlugins,
 } from "pd-markdown-ui/vue";
 
 export const markdownComponents = {
@@ -108,6 +110,7 @@ export const markdownComponents = {
 };
 
 export { defaultMarkdownPlugins };
+export { trustedMarkdownPlugins };
 ```
 
 If your Vue setup uses a renderer such as `@nuxt/content`, `markdown-it`, or a custom mdast pipeline, keep that renderer in place and plug these exported primitives into its component mapping layer.
@@ -178,7 +181,6 @@ The `mermaid` option is passed to Mermaid's `initialize` API. Use `className` fo
 
 - `remark-gfm`
 - `remark-math`
-- `rehype-raw`
 - `rehype-katex`
 
 This gives you:
@@ -189,12 +191,10 @@ This gives you:
 - fenced code blocks
 - Mermaid diagrams through fenced `mermaid` blocks
 - inline and block math
-- raw HTML passthrough
 
 ## Raw HTML safety note
 
-`rehype-raw` is intentionally included because it is useful in docs-heavy products and CMS-driven content.
-That also means you should only enable it for trusted Markdown sources, or pair it with your own sanitization policy before rendering untrusted content.
+`defaultMarkdownPlugins` does not include raw HTML parsing. Use `trustedMarkdownPlugins` only for trusted Markdown sources, or pair `rehypeRaw` with your own sanitization policy before rendering untrusted content.
 
 ## Storybook
 

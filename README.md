@@ -34,8 +34,16 @@ It currently includes:
 
 ### Install
 
+For product UI components:
+
 ```bash
-pnpm add pd-shad-ui pd-markdown-ui
+pnpm add pd-shad-ui
+```
+
+For Markdown rendering:
+
+```bash
+pnpm add pd-markdown-ui pd-shad-ui
 ```
 
 ### Use the UI package in React

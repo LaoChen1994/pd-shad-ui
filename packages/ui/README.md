@@ -15,6 +15,8 @@ Accessible, themeable UI components for React and Vue, built with Radix primitiv
 - React and Vue implementations that stay visually aligned
 - a Storybook workflow that makes cross-framework review easier
 
+Use it when you want shadcn-style components as an installed package, with `pd-` prefixed utilities and precompiled CSS instead of copying component source into every app.
+
 ## Highlights
 
 - `pd-` prefixed Tailwind classes to reduce style collisions

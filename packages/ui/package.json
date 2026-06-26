@@ -1,6 +1,18 @@
 {
   "name": "pd-shad-ui",
   "version": "2.1.1",
+  "description": "Accessible React and Vue UI components with pd-prefixed Tailwind styles.",
+  "keywords": [
+    "react",
+    "vue",
+    "ui",
+    "components",
+    "shadcn",
+    "radix",
+    "tailwind",
+    "design-system"
+  ],
+  "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
@@ -8,6 +20,9 @@
     "directory": "packages/ui"
   },
   "homepage": "https://github.com/LaoChen1994/pd-ui/tree/main/packages/ui",
+  "bugs": {
+    "url": "https://github.com/LaoChen1994/pd-ui/issues"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -31,10 +46,25 @@
       "import": "./dist/lib/utils.mjs",
       "require": "./dist/lib/utils.cjs"
     },
+    "./variants": {
+      "types": "./dist/variants/index.d.ts",
+      "import": "./dist/variants/index.mjs",
+      "require": "./dist/variants/index.cjs"
+    },
+    "./variants/*": {
+      "types": "./dist/variants/*.d.ts",
+      "import": "./dist/variants/*.mjs",
+      "require": "./dist/variants/*.cjs"
+    },
     "./components/ui/*": {
       "types": "./dist/components/ui/*.d.ts",
       "import": "./dist/components/ui/*.mjs",
       "require": "./dist/components/ui/*.cjs"
+    },
+    "./vue/components/ui/*": {
+      "types": "./dist/vue/components/ui/*.d.ts",
+      "import": "./dist/vue/components/ui/*.mjs",
+      "require": "./dist/vue/components/ui/*.cjs"
     }
   },
   "files": [
